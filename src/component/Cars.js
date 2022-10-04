@@ -19,7 +19,7 @@ function Cars() {
     setShowModal(false);
   };
   const handleConfirm = () => {
-    deleteCar(carId);
+    deleteCar();
   };
 
   return (

@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 import iconBox from "../assets/img/box.png";
 import iconDashb from "../assets/img/dashb.png";
+import toggleIcon from "../assets/img/fi_menu.png";
 import iconCar from "../assets/img/fi_truck.png";
 import iconAccount from "../assets/img/Group 15.png";
 
@@ -25,6 +26,11 @@ function NavbarADM() {
               navbarScroll
             >
               <Navbar.Toggle aria-controls="navbarScroll" />
+              <img
+                src={toggleIcon}
+                alt="toggleIconImg"
+                style={{ marginLeft: "190px" }}
+              />
               {/* <Nav.Link href="#action1">Home</Nav.Link>
               <Nav.Link href="#action2">Link</Nav.Link>
                */}
@@ -36,7 +42,14 @@ function NavbarADM() {
                 className="me-2 "
                 aria-label="Search"
               />
-              <Button variant="outline-primary" style={{ marginLeft: "-10px" }}>
+              <Button
+                style={{
+                  marginLeft: "-10px",
+                  backgroundColor: "white",
+                  borderColor: "#0D28A6",
+                  color: "#0D28A6",
+                }}
+              >
                 Search
               </Button>
             </Form>
