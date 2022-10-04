@@ -1,11 +1,11 @@
+import { BarElement, CategoryScale, Chart as ChartJS, LinearScale } from "chart.js";
 import React from "react";
-import { Chart as ChartJS, BarElement, CategoryScale, LinearScale } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement);
 
-const Chart = () => {
-  var data = {
+function Chart() {
+  const data = {
     labels: ["1", "2", "3", "4", "5", "6","7", "8", "9", "10", "11", "12", "13", "14", "15", "16","17", "18", "19", "20", "21", "22","23", "24", "25", "26","27", "28", "29", "30"],
     datasets: [
       {
@@ -18,7 +18,7 @@ const Chart = () => {
     ],
   };
 
-  var options = {
+  const options = {
     maintainAspecRatio: false,
     scales: {
       y: {
@@ -36,6 +36,6 @@ const Chart = () => {
       <Bar data={data} height={100} options={options} />
     </div>
   );
-};
+}
 
 export default Chart;

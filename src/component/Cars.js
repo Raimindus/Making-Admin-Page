@@ -1,42 +1,27 @@
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Form,
-  Card,
-  Image,
-} from "react-bootstrap";
-import vektor from "../assets/img/Vector.png";
-import iconDelete from "../assets/img/del.png";
-import fi_edit from "../assets/img/fi_edit.png";
-import fi_clock from "../assets/img/fi_clock.png";
-import fi_users from "../assets/img/fi_users.png";
-import { Link } from "react-router-dom";
-import DialogBox from "./DialogBox";
 import { useState } from "react";
+import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+import iconDelete from "../assets/img/del.png";
+import fi_clock from "../assets/img/fi_clock.png";
+import fi_edit from "../assets/img/fi_edit.png";
+import fi_users from "../assets/img/fi_users.png";
+import vektor from "../assets/img/Vector.png";
+import { deleteCar } from "../redux/features/counter/carSlice";
+import DialogBox from "./DialogBox";
 
 function Cars() {
   const [showModal, setShowModal] = useState(false);
-  function handleOnClickDelete() {
+  const handleOnClickDelete = () => {
     setShowModal(true);
-    console.log("test");
-  }
+  };
+  const HandleCloseModal = () => {
+    setShowModal(false);
+  };
+  const handleConfirm = () => {
+    deleteCar(carId);
+  };
 
-  const monthList = [
-    { value: "June - 2022", label: "June - 2022" },
-    { value: "Juli - 2022", label: "Juli - 2022" },
-    { value: "Agustus - 2022", label: "Agustus - 2022" },
-    { value: "September - 2022", label: "September - 2022" },
-  ];
-  const limitList = [{ value: "10", label: "10" }];
-  const jtpList = [
-    { value: "1", label: "1" },
-    { value: "2", label: "2" },
-    { value: "3", label: "3" },
-    { value: "4", label: "4" },
-  ];
-  console.log(showModal);
   return (
     <Container fluid id="dashboard">
       <Row className="d-flex">
@@ -49,7 +34,7 @@ function Cars() {
         <Col>
           <Col className="line1 d-flex gap-2 align-items-center">
             <p className="padm ">Cars</p>
-            <Image src={vektor} className="vektoradm"></Image>
+            <Image src={vektor} className="vektoradm" />
             <p className="padm2">List Car</p>
           </Col>
           <Card
@@ -100,20 +85,33 @@ function Cars() {
                     Rp 500.000 / hari
                   </Card.Subtitle>
                   <Card.Subtitle className="pt-3">
-                    <img className="icondel" src={fi_users}></img>6-8 people
+                    <img className="icondel" alt="icondelImg" src={fi_users} />
+                    6-8 people
                   </Card.Subtitle>
                   <Card.Subtitle className="pt-3">
-                    <img className="iconupdate me-1" src={fi_clock}></img>
+                    <img
+                      className="iconupdate me-1"
+                      alt="iconupdateImg"
+                      src={fi_clock}
+                    />
                     Updated at 4 Apr 2022, 09.00
                   </Card.Subtitle>
                   <Col className="d-flex justify-content-between fw-bold mt-3 gap-3">
-                    <DialogBox showModal={showModal} />
+                    <DialogBox
+                      onConfirm={handleConfirm}
+                      showModal={showModal}
+                      onCloseModal={HandleCloseModal}
+                    />
                     <Button
                       className="delEdit my-auto fw-bold"
                       variant="outline-danger"
                       onClick={handleOnClickDelete}
                     >
-                      <img className="icondel" src={iconDelete}></img>
+                      <img
+                        className="icondel"
+                        alt="icondelImg1"
+                        src={iconDelete}
+                      />
                       Delete
                     </Button>
 
@@ -122,7 +120,11 @@ function Cars() {
                         className="delEdit my-auto fw-bold"
                         variant="success"
                       >
-                        <img className="icondel" src={fi_edit}></img>
+                        <img
+                          className="icondel"
+                          alt="icondelImg2"
+                          src={fi_edit}
+                        />
                         Edit
                       </Button>
                     </Link>

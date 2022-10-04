@@ -1,12 +1,6 @@
 import NavbarADM from "../component/NavbarADM";
-import EditCar from "../component/EditCar";
 
 function AddToCar() {
-  return (
-    <>
-      <NavbarADM />
-      <EditCar />
-    </>
-  );
+  return <NavbarADM />;
 }
 export default AddToCar;

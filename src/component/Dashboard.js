@@ -1,7 +1,8 @@
-import { Container, Row, Col, Button, Form, Table, Image, Card } from "react-bootstrap";
-import Select from "react-select";
-import vektor from "../assets/img/Vector.png";
+import { Button, Card,Col, Container, Form, Image, Row, Table } from "react-bootstrap";
 import Pagination from "react-bootstrap/Pagination";
+import Select from "react-select";
+
+import vektor from "../assets/img/Vector.png";
 import Chart from "./Chart";
 
 function Dashboard() {
@@ -30,12 +31,12 @@ function Dashboard() {
         <Col>
           <Col className="line1 d-flex gap-2 align-items-center">
             <p className="padm ">Dashboard</p>
-            <Image src={vektor} className="vektoradm"></Image>
+            <Image src={vektor} className="vektoradm" />
             <p className="padm2">Dashboard</p>
           </Col>
           <Card className=" ms-1 me-5" style={{ backgroundColor: "#e8e3e3", paddingLeft: "10px", marginTop:"60px" ,width:"950px",border:"none"}}>
             <Col className="d-flex gap-2 align-items-center">
-              <div className="" style={{ marginTop: "-10px", width: "4px", height: "24px", backgroundColor: "blue" }}></div>
+              <div className="" style={{ marginTop: "-10px", width: "4px", height: "24px", backgroundColor: "blue" }} />
               <p className="dataP">Rented Car Data Visualization</p>
             </Col>
             <Form className="mt-2 mb-5">
@@ -50,7 +51,7 @@ function Dashboard() {
             
             
             <Col className="d-flex gap-2">
-              <div className="mt-1" style={{ width: "4px", height: "24px", backgroundColor: "blue" }}></div>
+              <div className="mt-1" style={{ width: "4px", height: "24px", backgroundColor: "blue" }} />
               <p className="dataP2">List Order</p>
             </Col>
             {/* tabel */}

@@ -1,18 +1,19 @@
 import {
-  Container,
-  Row,
-  Col,
   Button,
-  Form,
   Card,
+  Col,
+  Container,
+  Form,
   Image,
+  Row,
 } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
+
 import vektor from "../assets/img/Vector.png";
-import { UseNavigate } from 'react-router-dom';
 
 
 function ANCar() {
-  const navigate = UseNavigate();
+  const navigate = useNavigate();
   return (
     <Container fluid id="dashboard">  
       <Row className="d-flex">
@@ -25,9 +26,9 @@ function ANCar() {
         <Col>
           <Col className="line1 d-flex gap-2 align-items-center">
             <p className="padm ">Cars</p>
-            <Image src={vektor} className="vektoradm"></Image>
+            <Image src={vektor} className="vektoradm" />
             <p className="padm">List Car</p>
-            <Image src={vektor} className="vektoradm"></Image>
+            <Image src={vektor} className="vektoradm" />
             <p className="padm2">Add New Car</p>
           </Col>
           <Card
@@ -94,7 +95,7 @@ function ANCar() {
             </Card>
             <Col className="d-flex fw-bold gap-3">
               <Button variant="outline-primary" onClick={() =>{
-                navigate(`./Cars`);
+                navigate(`/car`);
               }}>Cancel</Button>
               <Button className="">Save </Button>
             </Col>

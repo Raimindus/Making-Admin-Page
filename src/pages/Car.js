@@ -1,5 +1,5 @@
-import NavbarADM from "../component/NavbarADM";
 import Cars from "../component/Cars";
+import NavbarADM from "../component/NavbarADM";
 
 function Car() {
   return (

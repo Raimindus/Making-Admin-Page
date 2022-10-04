@@ -1,5 +1,5 @@
-import NavbarADM from "../component/NavbarADM";
 import Dashboard from "../component/Dashboard";
+import NavbarADM from "../component/NavbarADM";
 
 function DashboardPage() {
   return (
