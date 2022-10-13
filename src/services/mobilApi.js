@@ -10,4 +10,8 @@ const getBinarById = (binarId) =>
 
 const deleteApi = (carId) => tokenApi.delete(`/admin/car/${carId}`);
 
-export { deleteApi, getBinarApi, getBinarById };
+const putApi = (editEntry) => tokenApi.put(`/admin/car/${editEntry}`);
+
+const postApi = () => tokenApi.post(`/admin/car`);
+
+export { deleteApi, getBinarApi, getBinarById, postApi, putApi };

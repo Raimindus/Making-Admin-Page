@@ -40,9 +40,9 @@ function DialogBox({ onCloseModal, showModal, onConfirm }) {
   return (
     <div>
       {showModal && (
-        <Modal onCancel={closeModalHandler} handleConfirm={closeModalHandler} />
+        <Modal onCancel={closeModalHandler} onConfirm={closeModalHandler} />
       )}
-      ;{showModal && <Backdrop onClick={closeModalHandler} />}
+      {showModal && <Backdrop onClick={closeModalHandler} />}
     </div>
   );
 }
