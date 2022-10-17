@@ -17,32 +17,29 @@ function Cars() {
   }, []);
 
   return (
-    <Container fluid id="dashboard">
+    <Container fluid id="dashboard1">
       <Row className="d-flex">
-        <Col className="sideDashboard">
-          <div className="side2 bg-white">
-            <p className="dash-judul">CARS</p>
-            <p className="dash-judul2">List Car</p>
-          </div>
-        </Col>
         <Col>
-          <Col className="line1 d-flex gap-2 align-items-center">
+          <Col className="line1 d-flex gap-3 ">
             <p className="padm ">Cars</p>
             <Image src={vektor} className="vektoradm" />
             <p className="padm2">List Car</p>
           </Col>
-          <Col className="d-flex justify-content-between fw-bold mt-3 gap-3" />
-          {detail.slice(0, 20).map((car) => (
-            <Card
-              id={car.id}
-              name={car.name}
-              image={car.image}
-              price={car.price}
-              start_rent_at={car.start_rent_at}
-              finish_rent_at={car.finish_rent_at}
-              updatedAt={car.updatedAt}
-            />
-          ))}
+          <Row>
+            <Col className="d-flex justify-content-between fw-bold mt-3 gap-3">
+              {detail.slice(0, 20).map((car) => (
+                <Card
+                  id={car.id}
+                  name={car.name}
+                  image={car.image}
+                  price={car.price}
+                  start_rent_at={car.start_rent_at}
+                  finish_rent_at={car.finish_rent_at}
+                  updatedAt={car.updatedAt}
+                />
+              ))}
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Container>

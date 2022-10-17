@@ -24,6 +24,13 @@ body {
   margin-top: 274px;
   margin-bottom: 32px;
 }
+.container1{
+  width: 100%;
+  height: 45px;
+  left: 0px;
+  top: 0px;
+
+}
 .divlogo1 {
   width: 100px;
   height: 34px;
@@ -60,12 +67,12 @@ body {
   width: 70px;
   height: 902px;
   background-color: blue;
-  margin-top: -60px;
+  margin-top: 0px;
 }
 #dashboard {
   background-color: #e8e3e3;
   margin-left: 70px;
-  margin-top: -842px;
+  margin-top: 0px;
 }
 .sideDashboard {
   background-color: #ffffff;
@@ -89,8 +96,8 @@ body {
   color: #151515;
   background-color: #cfd4ed;
   margin-top: 43px;
-  margin-left: -12px;
-  margin-right: -12px;
+  margin-left: 0px;
+  margin-right: 0px;
   padding: 13px;
 }
 /* .dash-judul2:active {
@@ -113,7 +120,7 @@ body {
 .vektoradm {
   width: 4px;
   height: 8px;
-  margin-top: -16px;
+  margin-top: 5px;
 }
 .padm2 {
   font-family: "Rubik";
@@ -145,12 +152,15 @@ body {
   margin-top: 5px;
 }
 
-/* dashboard */
-#dashboard {
-  margin-top: "-999px";
-  width: 1309px;
-  /* margin-right: 50px; */
+#dashboard1 {
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+position: absolute;
+left: 315px;
+top: 60px;
 }
+
 .boxPage {
   width: 90px;
   height: 40px;
