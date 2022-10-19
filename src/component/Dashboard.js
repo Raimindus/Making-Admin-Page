@@ -1,9 +1,10 @@
-import { Button, Card,Col, Container, Form, Image, Row, Table } from "react-bootstrap";
-import Pagination from "react-bootstrap/Pagination";
+import { Button, Card, Col, Container, Form, Image, Row } from "react-bootstrap";
+// import Pagination from "react-bootstrap/Pagination";
 import Select from "react-select";
 
 import vektor from "../assets/img/Vector.png";
 import Chart from "./Chart";
+import DataTable from "./DataTable";
 
 function Dashboard() {
   const monthList = [
@@ -34,7 +35,7 @@ function Dashboard() {
             <Image src={vektor} className="vektoradm" />
             <p className="padm2">Dashboard</p>
           </Col>
-          <Card className=" ms-1 me-5" style={{ backgroundColor: "#e8e3e3", paddingLeft: "10px", marginTop:"60px" ,width:"950px",border:"none"}}>
+          <Card className=" ms-1 me-5" style={{ backgroundColor: "#e8e3e3", paddingLeft: "10px", marginTop: "60px", width: "950px", border: "none" }}>
             <Col className="d-flex gap-2 align-items-center">
               <div className="" style={{ marginTop: "-10px", width: "4px", height: "24px", backgroundColor: "blue" }} />
               <p className="dataP">Rented Car Data Visualization</p>
@@ -46,93 +47,14 @@ function Dashboard() {
                 <Button>Go</Button>
               </Col>
             </Form>
-            <Chart/>
+            <Chart />
             <h6 className="mt-4 mb-3">Dashboard</h6>
-            
-            
+
             <Col className="d-flex gap-2">
               <div className="mt-1" style={{ width: "4px", height: "24px", backgroundColor: "blue" }} />
               <p className="dataP2">List Order</p>
             </Col>
-            {/* tabel */}
-            <Table bordered hover>
-              <thead className="bg-secondary">
-                <tr>
-                  <th>No</th>
-                  <th>Email User</th>
-                  <th>Car</th>
-                  <th>Start Rent</th>
-                  <th>Finish Rent</th>
-                  <th>Price</th>
-                  <th>Category</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-              </tbody>
-            </Table>
+            <DataTable />
             <Form className="d-flex flex-direction-column">
               <div>
                 <Form.Label>Limit</Form.Label>
@@ -151,7 +73,7 @@ function Dashboard() {
                   </Col>
                 </div>
               </div>
-              <div className="pagination ">
+              {/* <div className="pagination ">
                 <Col md={4}>
                   <Pagination style={{ marginleft: "-70px" }}>
                     <Pagination.Prev />
@@ -163,7 +85,7 @@ function Dashboard() {
                     <Pagination.Next />
                   </Pagination>
                 </Col>
-              </div>
+              </div> */}
             </Form>
           </Card>
         </Col>
