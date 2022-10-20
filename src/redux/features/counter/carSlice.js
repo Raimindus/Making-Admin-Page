@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import { deleteEntry, postEntry, putEntry } from "../../../services/cardApi";
-import { getBinarById } from "../../../services/mobilApi";
+import { getBinarById, getMonthlyReport } from "../../../services/mobilApi";
 
 export const getDetailCars = createAsyncThunk(
   "MobilApi/getBinarApi",
@@ -26,12 +26,19 @@ export const postCar = createAsyncThunk("admin/postCar", async () => {
   return res.data;
 });
 
+export const getMonthly = createAsyncThunk("admin/getMonthly" , async (months) => {
+  const res = await getMonthlyReport(months);
+  return res;
+});
+
 const initialState = {
   cars: {},
+  monthly: {},
   carsStatus: "idle",
   deleteStatus: "idle",
   putStatus: "idle",
   postStatus: "idle",
+  monthlyStatus: "idle",
 };
 
 export const carSlice = createSlice({
