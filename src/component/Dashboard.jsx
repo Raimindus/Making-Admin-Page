@@ -1,13 +1,4 @@
-import {
-  Button,
-  Card,
-  Col,
-  Container,
-  Form,
-  Row,
-  Table,
-} from "react-bootstrap";
-import Pagination from "react-bootstrap/Pagination";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import Select from "react-select";
 
 import Chart from "./Chart";
@@ -105,19 +96,6 @@ function Dashboard() {
                   </Col>
                 </div>
               </div>
-              {/* <div className="pagination ">
-                <Col md={4}>
-                  <Pagination style={{ marginleft: "-70px" }}>
-                    <Pagination.Prev />
-                    <Pagination.Item>{1}</Pagination.Item>
-                    <Pagination.Item>{2}</Pagination.Item>
-                    <Pagination.Item>{3}</Pagination.Item>
-                    <Pagination.Ellipsis />
-                    <Pagination.Item>{9}</Pagination.Item>
-                    <Pagination.Next />
-                  </Pagination>
-                </Col>
-              </div> */}
             </Form>
           </Card>
         </Col>
