@@ -7,15 +7,24 @@ body {
 
 /* CSS signIn page ADMIN */
 .contSignIn {
-  padding: 0;
-  width: 1433px;
+  position: relative;
+  width: 1440px;
   height: 900px;
 }
 .colForm {
   background-color: white;
+  position: absolute;
+  width: 482px;
+  height: 900px;
+  left: 958px;
 }
+
 .loginImg {
-  width: 1208px;
+  position: absolute;
+  width: 1433px;
+  height: 900px;
+  left: -250px;
+  top: 0px;
 }
 .divlogo {
   width: 100px;
@@ -199,9 +208,6 @@ top: 60px;
 .tblTdi {
   margin-top: 200px;
 }
-.delEdit {
-  width: 120px;
-}
 
 .modal  {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) !important;
@@ -215,6 +221,7 @@ top: 60px;
   top: 20vh !important;
   left: calc(50% - 15rem) !important;
   display: block !important;
+  height: 333px;
 }
 
 .backdrop {
@@ -231,22 +238,42 @@ top: 60px;
   padding: 0.5rem 1.5rem;
   cursor: pointer;
   border-radius: 4px;
-  background-color: #800040;
-  color: white;
-  border: 1px solid #800040;
+  background-color: white;;
+  color: #0D28A6;;;
+  border: 1px solid #0D28A6;
   margin: 0 1rem;
 }
 
 .button1:hover {
-  background-color: #9c1458;
-  border-color: #9c1458;
+  background-color: #0D28A6;;
+  color: white;
+  border-color: #0D28A6;
 }
 
 .button1--alt {
-  background-color: transparent;
-  color: #800040;
+  padding: 0.5rem 2.5rem;
+  background-color: #0D28A6;
+  color: white;
 }
 
 .button1--alt:hover {
-  background-color: #f8dae9;
+  background-color: white;
+  color: #0D28A6;;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-rows: repeat(2,100px);
+  width: 10px;
+}
+
+.hdr1{
+  display: grid;
+  width: 100%;
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
 }

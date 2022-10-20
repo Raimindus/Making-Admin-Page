@@ -1,8 +1,6 @@
-import { Button, Card, Col, Container, Form, Image, Row } from "react-bootstrap";
-// import Pagination from "react-bootstrap/Pagination";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import Select from "react-select";
 
-import vektor from "../assets/img/Vector.png";
 import Chart from "./Chart";
 import DataTable from "./DataTable";
 
@@ -31,14 +29,29 @@ function Dashboard() {
           </Col>
           <Card className=" ms-1 me-5" style={{ backgroundColor: "#e8e3e3", paddingLeft: "10px", marginTop: "60px", width: "950px", border: "none" }}>
             <Col className="d-flex gap-2 align-items-center">
-              <div className="" style={{ marginTop: "-10px", width: "4px", height: "24px", backgroundColor: "blue" }} />
+              <div
+                className=""
+                style={{
+                  marginTop: "-10px",
+                  width: "4px",
+                  height: "24px",
+                  backgroundColor: "blue",
+                }}
+              />
               <p className="dataP">Rented Car Data Visualization</p>
             </Col>
             <Chart />
             <h6 className="mt-4 mb-3">Dashboard</h6>
 
             <Col className="d-flex gap-2">
-              <div className="mt-1" style={{ width: "4px", height: "24px", backgroundColor: "blue" }} />
+              <div
+                className="mt-1"
+                style={{
+                  width: "4px",
+                  height: "24px",
+                  backgroundColor: "blue",
+                }}
+              />
               <p className="dataP2">List Order</p>
             </Col>
             <DataTable />
@@ -46,33 +59,28 @@ function Dashboard() {
               <div>
                 <Form.Label>Limit</Form.Label>
                 <Col md={3} className="">
-                  <Select className="selectFont limitS me-2" options={limitList} placeholder="10" />
+                  <Select
+                    className="selectFont limitS me-2"
+                    options={limitList}
+                    placeholder="10"
+                  />
                 </Col>
               </div>
               <div>
                 <Form.Label>Jump to page</Form.Label>
                 <div className="d-flex">
                   <Col md={3}>
-                    <Select className="limitJtp selectFont me-5" options={jtpList} placeholder="1" />
+                    <Select
+                      className="limitJtp selectFont me-5"
+                      options={jtpList}
+                      placeholder="1"
+                    />
                   </Col>
                   <Col md={2}>
                     <Button className="btnjtp">Go</Button>
                   </Col>
                 </div>
               </div>
-              {/* <div className="pagination ">
-                <Col md={4}>
-                  <Pagination style={{ marginleft: "-70px" }}>
-                    <Pagination.Prev />
-                    <Pagination.Item>{1}</Pagination.Item>
-                    <Pagination.Item>{2}</Pagination.Item>
-                    <Pagination.Item>{3}</Pagination.Item>
-                    <Pagination.Ellipsis />
-                    <Pagination.Item>{9}</Pagination.Item>
-                    <Pagination.Next />
-                  </Pagination>
-                </Col>
-              </div> */}
             </Form>
           </Card>
         </Col>

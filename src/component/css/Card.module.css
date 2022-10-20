@@ -1,0 +1,77 @@
+
+.cardName {
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+}
+
+.price {
+        font-family: "Arial";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        color: #000000;
+        order: 1;
+        align-self: stretch;
+        flex-grow: 0;
+}
+
+.startendrent {
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        order: 1;
+        flex-grow: 1;
+        font-family: "Arial";
+}
+
+.updatedat {
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+        order: 1;
+        flex-grow: 1;
+        font-family: "Arial";
+}
+
+
+.editbutton {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 12px;
+        gap: 12px;
+        background: #5CB85F;
+        border: 1px solid #FA2C5A;
+        border-radius: 2px;
+        flex: none;
+        order: 1;
+        flex-grow: 1;
+        width: 120px;
+}
+
+.deletebutton {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 12px;
+        gap: 10px;
+        background: #FFFFFF;
+        border: 1px solid #FA2C5A;
+        border-radius: 2px;
+        flex: none;
+        order: 0;
+        flex-grow: 1;
+        width: 120px;
+}

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 
-import vektor from "../assets/img/Vector.png";
+import gambar1 from "../assets/img/Vector.png";
 import { getId } from "../services/cardApi";
 import Card from "./Card";
+import css from "./css/Cars.module.css";
 
 function Cars() {
   const [detail, setDetail] = useState([]);
@@ -17,17 +18,32 @@ function Cars() {
   }, []);
 
   return (
-    <Container fluid id="dashboard1">
+    <Container id="dashboard1">
       <Row className="d-flex">
         <Col>
           <Col className="line1 d-flex gap-3 ">
             <p className="padm ">Cars</p>
-            <Image src={vektor} className="vektoradm" />
+            <Image src={gambar1} className="vektoradm" />
             <p className="padm2">List Car</p>
           </Col>
+          <Col className="gridContainer">
+            <Col className={css.container1}>
+              <h1 className="hdr1">List Car</h1>
+              <button className={css.buttonadd}>+ Add New Car</button>
+            </Col>
+            <Col className={css.container2}>
+              <button className={css.buttonall}>All</button>
+              <button className={css.buttoncat1}>2-4 people</button>
+              <button className={css.buttoncat2}>4-6 people</button>
+              <button className={css.buttoncat3}>6-8 people</button>
+            </Col>
+          </Col>
           <Row>
-            <Col className="d-flex justify-content-between fw-bold mt-3 gap-3">
-              {detail.slice(0, 20).map((car) => (
+            {detail.slice(0, 20).map((car) => (
+              <Col
+                className="d-flex justify-content-between fw-bold mt-3 gap-3"
+                md={4}
+              >
                 <Card
                   id={car.id}
                   name={car.name}
@@ -37,8 +53,8 @@ function Cars() {
                   finish_rent_at={car.finish_rent_at}
                   updatedAt={car.updatedAt}
                 />
-              ))}
-            </Col>
+              </Col>
+            ))}
           </Row>
         </Col>
       </Row>

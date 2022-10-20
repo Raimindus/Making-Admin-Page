@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import imagePlaceholder from "../assets/img/carComingSoon.png";
 import { deleteCar } from "../redux/features/counter/carSlice";
+import css from "./css/Card.module.css";
 import DialogBox from "./DialogBox";
 
 const carCard = ({
@@ -43,60 +44,12 @@ const carCard = ({
       />
       <Card.Body>
         <Card.Title>
-          <div
-            style={{
-              fontFamily: "Arial",
-              fontStyle: "normal",
-              fontWeight: "400",
-              fontSize: "14px",
-              lineHeight: "20px",
-              color: "#000000",
-              order: "0",
-              alignSelf: "stretch",
-              flexGrow: "0",
-            }}
-          >
-            {name}
-          </div>
-          <div
-            style={{
-              fontFamily: "Arial",
-              fontStyle: "normal",
-              fontWeight: "700",
-              fontSize: "16px",
-              lineHeight: "24px",
-              color: "#000000",
-              order: "1",
-              alignSelf: "stretch",
-              flexGrow: "0",
-            }}
-          >
-            {price}
-          </div>
-          <div
-            style={{
-              fontSize: "14px",
-              lineHeight: "20px",
-              color: "#000000",
-              order: "1",
-              flexGrow: "1",
-              fontFamily: "Arial",
-            }}
-          >
+          <div className={css.cardName}>{name}</div>
+          <div className={css.price}>{price}</div>
+          <div className={css.startendrent}>
             {start_rent_at}-{finish_rent_at}
           </div>
-          <div
-            style={{
-              fontSize: "14px",
-              lineHeight: "20px",
-              color: "#000000",
-              order: "1",
-              flexGrow: "1",
-              fontFamily: "Arial",
-            }}
-          >
-            {updatedAt}
-          </div>
+          <div className={css.updatedat}>{updatedAt}</div>
         </Card.Title>
       </Card.Body>
       <DialogBox
@@ -105,46 +58,16 @@ const carCard = ({
         onCloseModal={HandleCloseModal}
       />
       <Button
-        className="delEdit my-auto fw-bold"
+        className={` my-auto fw-bold ${css.deletebutton}`}
         variant="outline-danger"
         onClick={handleOnClickDelete}
-        style={{
-          boxSizing: "borderbox",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "8px 12px",
-          gap: "10px",
-          background: "#FFFFFF",
-          border: "1px solid #FA2C5A",
-          borderRadius: "2px",
-          flex: "none",
-          order: "0",
-          flexgrow: "1",
-        }}
       >
         Delete
       </Button>
       <Button
-        className="delEdit my-auto fw-bold"
+        className={`my-auto fw-bold ${css.editbutton}`}
         variant="success"
         onClick={handleonEdit}
-        style={{
-          boxSizing: "borderbox",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "8px 12px",
-          gap: "12px",
-          background: "#5CB85F",
-          border: "1px solid #FA2C5A",
-          borderRadius: "2px",
-          flex: "none",
-          order: "1",
-          flexgrow: "1",
-        }}
       >
         Edit
       </Button>
