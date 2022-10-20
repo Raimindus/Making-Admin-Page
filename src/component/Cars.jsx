@@ -4,6 +4,7 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import gambar1 from "../assets/img/Vector.png";
 import { getId } from "../services/cardApi";
 import Card from "./Card";
+import css from "./css/Cars.module.css";
 
 function Cars() {
   const [detail, setDetail] = useState([]);
@@ -26,12 +27,16 @@ function Cars() {
             <p className="padm2">List Car</p>
           </Col>
           <Col className="gridContainer">
-            <h1 className="hdr1">List Car</h1>
-            <button>+ Add New Car</button>
-            <button>All</button>
-            <button>2-4 people</button>
-            <button>4-6 people</button>
-            <button>6-8 people</button>
+            <Col className={css.container1}>
+              <h1 className="hdr1">List Car</h1>
+              <button className={css.buttonadd}>+ Add New Car</button>
+            </Col>
+            <Col className={css.container2}>
+              <button className={css.buttonall}>All</button>
+              <button className={css.buttoncat1}>2-4 people</button>
+              <button className={css.buttoncat2}>4-6 people</button>
+              <button className={css.buttoncat3}>6-8 people</button>
+            </Col>
           </Col>
           <Row>
             {detail.slice(0, 20).map((car) => (
