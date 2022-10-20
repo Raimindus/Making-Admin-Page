@@ -11,6 +11,7 @@ import Pagination from "react-bootstrap/Pagination";
 import Select from "react-select";
 
 import Chart from "./Chart";
+import DataTable from "./DataTable";
 
 function Dashboard() {
   const monthList = [
@@ -77,85 +78,7 @@ function Dashboard() {
               />
               <p className="dataP2">List Order</p>
             </Col>
-            {/* tabel */}
-            <Table bordered hover>
-              <thead className="bg-secondary">
-                <tr>
-                  <th>No</th>
-                  <th>Email User</th>
-                  <th>Car</th>
-                  <th>Start Rent</th>
-                  <th>Finish Rent</th>
-                  <th>Price</th>
-                  <th>Category</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-                <tr>
-                  <td>No</td>
-                  <td>Email User</td>
-                  <td>Car</td>
-                  <td>Start Rent</td>
-                  <td>Finish Rent</td>
-                  <td>Price</td>
-                  <td>Category</td>
-                </tr>
-              </tbody>
-            </Table>
+            <DataTable />
             <Form className="d-flex flex-direction-column">
               <div>
                 <Form.Label>Limit</Form.Label>
@@ -182,7 +105,7 @@ function Dashboard() {
                   </Col>
                 </div>
               </div>
-              <div className="pagination ">
+              {/* <div className="pagination ">
                 <Col md={4}>
                   <Pagination style={{ marginleft: "-70px" }}>
                     <Pagination.Prev />
@@ -194,7 +117,7 @@ function Dashboard() {
                     <Pagination.Next />
                   </Pagination>
                 </Col>
-              </div>
+              </div> */}
             </Form>
           </Card>
         </Col>
