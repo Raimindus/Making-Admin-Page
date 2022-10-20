@@ -4,6 +4,7 @@ import {
   deleteEntry,
   getBinarById,
   getCarsApi,
+  getMonthlyReport,
   postEntry,
   putEntry,
 } from "../../../services/cardApi";
@@ -12,7 +13,6 @@ export const getCars = createAsyncThunk("MobilApi/getCars", async () => {
   const res = await getCarsApi();
   return res.data;
 });
-
 export const getDetailCars = createAsyncThunk(
   "MobilApi/getBinarApi",
   async (binarId) => {
@@ -36,6 +36,14 @@ export const postCar = createAsyncThunk("admin/v2/postCar", async () => {
   return res.data;
 });
 
+export const getMonthly = createAsyncThunk(
+  "admin/getMonthly",
+  async (months) => {
+    const res = await getMonthlyReport(months);
+    return res;
+  }
+);
+
 const initialState = {
   cars: {},
   allCars: {},
@@ -44,6 +52,7 @@ const initialState = {
   deleteStatus: "idle",
   putStatus: "idle",
   postStatus: "idle",
+  monthlyStatus: "idle",
 };
 
 export const carSlice = createSlice({

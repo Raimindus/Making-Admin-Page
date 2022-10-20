@@ -53,3 +53,16 @@ export const getBinarApi = () =>
 
 export const getBinarById = (binarId) =>
   axios.get(`https://bootcamp-rent-cars.herokuapp.com/admin/car/${binarId}`);
+
+export const getMonthlyReport = async (months) => {
+  try {
+    const res = await tokenApi.get(
+      `/admin/order/reports?from=${months[0]}&until=${months[1]}`
+    );
+    console.log(res.data);
+    return res.data;
+  } catch (e) {
+    console.error(e);
+    return e;
+  }
+};

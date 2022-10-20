@@ -1,16 +1,25 @@
-import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  Image,
+  Row,
+} from "react-bootstrap";
 import Select from "react-select";
 
+import vektor from "../assets/img/Vector.png";
 import Chart from "./Chart";
 import DataTable from "./DataTable";
 
 function Dashboard() {
-  const monthList = [
-    { value: "June - 2022", label: "June - 2022" },
-    { value: "Juli - 2022", label: "Juli - 2022" },
-    { value: "Agustus - 2022", label: "Agustus - 2022" },
-    { value: "September - 2022", label: "September - 2022" },
-  ];
+  // const monthList = [
+  //   { value: "June - 2022", label: "June - 2022" },
+  //   { value: "Juli - 2022", label: "Juli - 2022" },
+  //   { value: "Agustus - 2022", label: "Agustus - 2022" },
+  //   { value: "September - 2022", label: "September - 2022" },
+  // ];
   const limitList = [{ value: "10", label: "10" }];
   const jtpList = [
     { value: "1", label: "1" },
@@ -22,6 +31,11 @@ function Dashboard() {
     <Container fluid id="dashboard">
       <Row className="d-flex">
         <Col>
+          <Col className="line1 d-flex gap-2">
+            <p className="padm ">Dashboard</p>
+            <Image src={vektor} className="vektoradm" />
+            <p className="padm2">Dashboard</p>
+          </Col>
           <Card
             className=" ms-1 me-5"
             style={{
@@ -44,17 +58,6 @@ function Dashboard() {
               />
               <p className="dataP">Rented Car Data Visualization</p>
             </Col>
-            <Form className="mt-2 mb-5">
-              <Form.Label>Month</Form.Label>
-              <Col md={3} className="d-flex">
-                <Select
-                  className="selectFont"
-                  options={monthList}
-                  placeholder="June - 2022"
-                />
-                <Button>Go</Button>
-              </Col>
-            </Form>
             <Chart />
             <h6 className="mt-4 mb-3">Dashboard</h6>
 
