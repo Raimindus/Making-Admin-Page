@@ -2,20 +2,20 @@ import { Col, Row } from "react-bootstrap";
 
 import Cars from "../component/Cars";
 import Header from "../component/Header";
-import Sidebar from "../component/Navbar";
-import Navbar from "../component/Sidebar";
+import Navbar from "../component/Navbar";
+import Sidebar from "../component/Sidebar";
 
 function Car() {
   return (
     <div style={{ display: "flex" }}>
-      <Sidebar />
+      <Navbar />
       <div style={{ flex: "1" }}>
         <Row>
           <Col xs={12}>
             <Header />
           </Col>
           <Col xs={2}>
-            <Navbar />
+            <Sidebar title="Cars" submenu="List Car" />
           </Col>
           <Col xs={10}>
             <Cars />

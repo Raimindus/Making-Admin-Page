@@ -26,7 +26,7 @@ function SignIn() {
   const [error, setError] = useState();
 
   return (
-    <Container fluid className="contSignIn" style={{ paddingLeft: "0" }}>
+    <Container className="contSignIn">
       <Row>
         <Col md={8}>
           <img src={LoginImg} alt="gambarLogin" className="loginImg" />
@@ -100,8 +100,12 @@ function SignIn() {
                 </FormGroup>
                 <Button
                   type="submit"
-                  className="button1"
-                  style={{ width: "100%", backgroundColor: "#0D28A6" }}
+                  className="bttn1"
+                  style={{
+                    width: "100%",
+                    backgroundColor: "#0D28A6",
+                    marginTop: "30px",
+                  }}
                 >
                   Sign In
                 </Button>

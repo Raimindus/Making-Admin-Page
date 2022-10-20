@@ -1,8 +1,15 @@
-import { Button, Card,Col, Container, Form, Image, Row, Table } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  Row,
+  Table,
+} from "react-bootstrap";
 import Pagination from "react-bootstrap/Pagination";
 import Select from "react-select";
 
-import vektor from "../assets/img/Vector.png";
 import Chart from "./Chart";
 
 function Dashboard() {
@@ -22,36 +29,52 @@ function Dashboard() {
   return (
     <Container fluid id="dashboard">
       <Row className="d-flex">
-        <Col className="sideDashboard">
-          <div className="side2 bg-white">
-            <p className="dash-judul">DASHBOARD </p>
-            <p className="dash-judul2">Dashboard</p>
-          </div>
-        </Col>
         <Col>
-          <Col className="line1 d-flex gap-2 align-items-center">
-            <p className="padm ">Dashboard</p>
-            <Image src={vektor} className="vektoradm" />
-            <p className="padm2">Dashboard</p>
-          </Col>
-          <Card className=" ms-1 me-5" style={{ backgroundColor: "#e8e3e3", paddingLeft: "10px", marginTop:"60px" ,width:"950px",border:"none"}}>
+          <Card
+            className=" ms-1 me-5"
+            style={{
+              backgroundColor: "#e8e3e3",
+              paddingLeft: "10px",
+              marginTop: "60px",
+              width: "950px",
+              border: "none",
+            }}
+          >
             <Col className="d-flex gap-2 align-items-center">
-              <div className="" style={{ marginTop: "-10px", width: "4px", height: "24px", backgroundColor: "blue" }} />
+              <div
+                className=""
+                style={{
+                  marginTop: "-10px",
+                  width: "4px",
+                  height: "24px",
+                  backgroundColor: "blue",
+                }}
+              />
               <p className="dataP">Rented Car Data Visualization</p>
             </Col>
             <Form className="mt-2 mb-5">
               <Form.Label>Month</Form.Label>
               <Col md={3} className="d-flex">
-                <Select className="selectFont" options={monthList} placeholder="June - 2022" />
+                <Select
+                  className="selectFont"
+                  options={monthList}
+                  placeholder="June - 2022"
+                />
                 <Button>Go</Button>
               </Col>
             </Form>
-            <Chart/>
+            <Chart />
             <h6 className="mt-4 mb-3">Dashboard</h6>
-            
-            
+
             <Col className="d-flex gap-2">
-              <div className="mt-1" style={{ width: "4px", height: "24px", backgroundColor: "blue" }} />
+              <div
+                className="mt-1"
+                style={{
+                  width: "4px",
+                  height: "24px",
+                  backgroundColor: "blue",
+                }}
+              />
               <p className="dataP2">List Order</p>
             </Col>
             {/* tabel */}
@@ -137,14 +160,22 @@ function Dashboard() {
               <div>
                 <Form.Label>Limit</Form.Label>
                 <Col md={3} className="">
-                  <Select className="selectFont limitS me-2" options={limitList} placeholder="10" />
+                  <Select
+                    className="selectFont limitS me-2"
+                    options={limitList}
+                    placeholder="10"
+                  />
                 </Col>
               </div>
               <div>
                 <Form.Label>Jump to page</Form.Label>
                 <div className="d-flex">
                   <Col md={3}>
-                    <Select className="limitJtp selectFont me-5" options={jtpList} placeholder="1" />
+                    <Select
+                      className="limitJtp selectFont me-5"
+                      options={jtpList}
+                      placeholder="1"
+                    />
                   </Col>
                   <Col md={2}>
                     <Button className="btnjtp">Go</Button>
