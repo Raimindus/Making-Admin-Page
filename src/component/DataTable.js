@@ -1,9 +1,9 @@
 /* eslint-disable import/no-unresolved */
-import axios from "axios";
 import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
 import { Spinner, Table } from "react-bootstrap";
 
+import tokenApi from "../services/tokenApi";
 import Pagination from "./Pagination";
 
 function DataTable() {
@@ -17,8 +17,10 @@ function DataTable() {
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
-      const res = await axios.get("https://bootcamp-rent-car.herokuapp.com/admin/order");
-      setPosts(res.data);
+      const res = await tokenApi.get(
+        "https://bootcamp-rent-cars.herokuapp.com/admin/v2/order"
+      );
+      setPosts(res.data.orders);
       setLoading(false);
     };
     fetchPosts();
@@ -84,7 +86,11 @@ function DataTable() {
               <Posts posts={currentPosts} loading={loading} />
             </tbody>
           </Table>
-          <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate} />
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={posts.length}
+            paginate={paginate}
+          />
         </>
       )}
     </div>
