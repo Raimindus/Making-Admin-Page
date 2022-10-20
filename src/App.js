@@ -1,6 +1,7 @@
 import "./App.css";
 
 import React from "react";
+import { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import AuthWrapper from "./component/AuthWrapper";
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/ancar" element={<ANCar />} />
           </Routes>
         </AuthWrapper>
+        <Toaster />
       </div>
     </Router>
   );

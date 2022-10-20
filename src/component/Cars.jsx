@@ -28,17 +28,17 @@ function Cars() {
             <Image src={gambar1} className="vektoradm" />
             <p className="padm2">List Car</p>
           </Col>
-          <Col className="gridContainer">
-            <Col className={css.container1}>
-              <h1 className="hdr1">List Car</h1>
+          <Col>
+            <div className={css.container1}>
+              <h1 className={css.hdr1}>List Car</h1>
               <button className={css.buttonadd}>+ Add New Car</button>
-            </Col>
-            <Col className={css.container2}>
+            </div>
+            <div className={css.container2}>
               <button className={css.buttonall}>All</button>
               <button className={css.buttoncat1}>2-4 people</button>
               <button className={css.buttoncat2}>4-6 people</button>
               <button className={css.buttoncat3}>6-8 people</button>
-            </Col>
+            </div>
           </Col>
           <Row>
             {cars.map((car) => (

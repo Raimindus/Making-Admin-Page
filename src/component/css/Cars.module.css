@@ -1,15 +1,24 @@
 .container1 {
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 100px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .container2{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    column-gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
+.hdr1{
+    display: grid;
+    width: 100%;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+  }
 .buttonadd {
     box-sizing: border-box;
     display: flex;
@@ -17,7 +26,6 @@
     align-items: center;
     padding: 8px 12px;
     gap: 12px;
-    position: absolute;
     width: 142px;
     background: #0D28A6;
     border-radius: 2px;

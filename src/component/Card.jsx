@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
+import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 
 import imagePlaceholder from "../assets/img/carComingSoon.png";
@@ -25,6 +26,7 @@ const carCard = ({
   const handleConfirm = async () => {
     await dispatch(deleteCar(id));
     dispatch(getCars());
+    toast.success("Data Berhasil Dihapus");
   };
   const handleOnClickDelete = () => {
     setShowModal(true);

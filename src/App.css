@@ -267,13 +267,3 @@ top: 60px;
   width: 10px;
 }
 
-.hdr1{
-  display: grid;
-  width: 100%;
-  font-family: 'Arial';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 30px;
-  color: #000000;
-}
