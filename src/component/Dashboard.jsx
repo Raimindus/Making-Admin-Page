@@ -1,6 +1,15 @@
-import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  Image,
+  Row,
+} from "react-bootstrap";
 import Select from "react-select";
 
+import vektor from "../assets/img/Vector.png";
 import Chart from "./Chart";
 import DataTable from "./DataTable";
 
@@ -27,7 +36,16 @@ function Dashboard() {
             <Image src={vektor} className="vektoradm" />
             <p className="padm2">Dashboard</p>
           </Col>
-          <Card className=" ms-1 me-5" style={{ backgroundColor: "#e8e3e3", paddingLeft: "10px", marginTop: "60px", width: "950px", border: "none" }}>
+          <Card
+            className=" ms-1 me-5"
+            style={{
+              backgroundColor: "#e8e3e3",
+              paddingLeft: "10px",
+              marginTop: "60px",
+              width: "950px",
+              border: "none",
+            }}
+          >
             <Col className="d-flex gap-2 align-items-center">
               <div
                 className=""
