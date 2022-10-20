@@ -3,7 +3,7 @@ import { Button, Card } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 import imagePlaceholder from "../assets/img/carComingSoon.png";
-import { deleteCar } from "../redux/features/counter/carSlice";
+import { deleteCar, getCars } from "../redux/features/counter/carSlice";
 import css from "./css/Card.module.css";
 import DialogBox from "./DialogBox";
 
@@ -22,8 +22,9 @@ const carCard = ({
   const HandleCloseModal = () => {
     setShowModal(false);
   };
-  const handleConfirm = () => {
-    dispatch(deleteCar(id));
+  const handleConfirm = async () => {
+    await dispatch(deleteCar(id));
+    dispatch(getCars());
   };
   const handleOnClickDelete = () => {
     setShowModal(true);

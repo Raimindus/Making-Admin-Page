@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 
 import gambar1 from "../assets/img/Vector.png";
-import { getId } from "../services/cardApi";
+import { getCars } from "../redux/features/counter/carSlice";
 import Card from "./Card";
 import css from "./css/Cars.module.css";
 
 function Cars() {
-  const [detail, setDetail] = useState([]);
+  const selectCars = (state) => state.carSlice.allCars.cars || [];
+  const cars = useSelector(selectCars);
+  console.log(cars);
+  const dispatch = useDispatch();
   useEffect(() => {
     const getDatas = async () => {
-      const response = await getId();
-      const carData = await response.data;
-      setDetail(carData);
+      dispatch(getCars());
     };
     getDatas();
   }, []);
@@ -39,8 +41,9 @@ function Cars() {
             </Col>
           </Col>
           <Row>
-            {detail.slice(0, 20).map((car) => (
+            {cars.map((car) => (
               <Col
+                key={car.id}
                 className="d-flex justify-content-between fw-bold mt-3 gap-3"
                 md={4}
               >

@@ -32,17 +32,15 @@ function Modal(props) {
 }
 
 function DialogBox({ onCloseModal, showModal, onConfirm }) {
-  function closeModalHandler() {
+  function handleConfirm() {
     onConfirm();
     onCloseModal();
   }
   console.log(showModal);
   return (
     <div>
-      {showModal && (
-        <Modal onCancel={closeModalHandler} onConfirm={closeModalHandler} />
-      )}
-      {showModal && <Backdrop onClick={closeModalHandler} />}
+      {showModal && <Modal onCancel={onCloseModal} onConfirm={handleConfirm} />}
+      {showModal && <Backdrop onClick={onCloseModal} />}
     </div>
   );
 }

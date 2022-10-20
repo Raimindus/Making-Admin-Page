@@ -2,10 +2,10 @@ import axios from "axios";
 
 import tokenApi from "./tokenApi";
 
-export const getId = async () => {
+export const getCarsApi = async () => {
   try {
-    const res = await axios.get(
-      "https://bootcamp-rent-car.herokuapp.com/admin/car"
+    const res = await tokenApi.get(
+      "https://bootcamp-rent-cars.herokuapp.com/admin/v2/car"
     );
     return res;
   } catch (e) {
@@ -16,8 +16,8 @@ export const getId = async () => {
 
 export const deleteEntry = async (id) => {
   try {
-    const res = await axios.delete(
-      `https://bootcamp-rent-car.herokuapp.com/admin/car/${id}`
+    const res = await tokenApi.delete(
+      `https://bootcamp-rent-cars.herokuapp.com/admin/car/${id}`
     );
     return res;
   } catch (e) {
@@ -29,7 +29,7 @@ export const deleteEntry = async (id) => {
 export const postEntry = async (payload) => {
   try {
     await tokenApi.post(
-      `https://bootcamp-rent-car.herokuapp.com/admin/car`,
+      `https://bootcamp-rent-cars.herokuapp.com/admin/car`,
       payload
     );
   } catch (e) {
@@ -40,10 +40,16 @@ export const postEntry = async (payload) => {
 export const putEntry = async (editEntry, payload) => {
   try {
     await tokenApi.put(
-      `https://bootcamp-rent-car.herokuapp.com/admin/car/${editEntry}`,
+      `https://bootcamp-rent-cars.herokuapp.com/admin/car/${editEntry}`,
       payload
     );
   } catch (e) {
     console.error(e);
   }
 };
+
+export const getBinarApi = () =>
+  axios.get("https://bootcamp-rent-cars.herokuapp.com/admin/v2/car");
+
+export const getBinarById = (binarId) =>
+  axios.get(`https://bootcamp-rent-cars.herokuapp.com/admin/car/${binarId}`);

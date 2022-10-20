@@ -1,7 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { deleteEntry, postEntry, putEntry } from "../../../services/cardApi";
-import { getBinarById } from "../../../services/mobilApi";
+import {
+  deleteEntry,
+  getBinarById,
+  getCarsApi,
+  postEntry,
+  putEntry,
+} from "../../../services/cardApi";
+
+export const getCars = createAsyncThunk("MobilApi/getCars", async () => {
+  const res = await getCarsApi();
+  return res.data;
+});
 
 export const getDetailCars = createAsyncThunk(
   "MobilApi/getBinarApi",
@@ -11,23 +21,25 @@ export const getDetailCars = createAsyncThunk(
   }
 );
 
-export const deleteCar = createAsyncThunk("/admin/car/", async (carId) => {
+export const deleteCar = createAsyncThunk("/admin/v2/car/", async (carId) => {
   const res = await deleteEntry(carId);
   return res.data;
 });
 
-export const putCar = createAsyncThunk("/admin/putCar", async (carId) => {
+export const putCar = createAsyncThunk("/admin/v2/putCar", async (carId) => {
   const res = await putEntry(carId);
   return res.data;
 });
 
-export const postCar = createAsyncThunk("admin/postCar", async () => {
+export const postCar = createAsyncThunk("admin/v2/postCar", async () => {
   const res = await postEntry();
   return res.data;
 });
 
 const initialState = {
   cars: {},
+  allCars: {},
+  allCarsStatus: "idle",
   carsStatus: "idle",
   deleteStatus: "idle",
   putStatus: "idle",
@@ -39,6 +51,19 @@ export const carSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
+    [getCars.pending]: (state) => ({
+      ...state,
+      allCarsStatus: "loading",
+    }),
+    [getCars.fulfilled]: (state, action) => ({
+      ...state,
+      allCars: action.payload,
+      allCarsStatus: "success",
+    }),
+    [getCars.rejected]: (state) => ({
+      ...state,
+      allCarsStatus: "failed",
+    }),
     [getDetailCars.pending]: (state) => ({
       ...state,
       carsStatus: "loading",
