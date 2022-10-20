@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import toast from "react-hot-toast";
@@ -12,9 +13,8 @@ const carCard = ({
   id,
   image,
   name,
+  category,
   price,
-  start_rent_at,
-  finish_rent_at,
   updatedAt,
 }) => {
   const [showModal, setShowModal] = useState(false);
@@ -48,11 +48,9 @@ const carCard = ({
       <Card.Body>
         <Card.Title>
           <div className={css.cardName}>{name}</div>
-          <div className={css.price}>{price}</div>
-          <div className={css.startendrent}>
-            {start_rent_at}-{finish_rent_at}
-          </div>
-          <div className={css.updatedat}>{updatedAt}</div>
+          <div className={css.price}>Rp. {price} / hari</div>
+          <div  className={css.cardName}>{category} </div>
+          <div className={css.updatedat}>{dayjs(updatedAt).format('D MMM YYYY, HH:mm')}</div>
         </Card.Title>
       </Card.Body>
       <DialogBox

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -8,16 +8,19 @@ import Card from "./Card";
 import css from "./css/Cars.module.css";
 
 function Cars() {
+  const [category, setCategory] = useState();
+
   const selectCars = (state) => state.carSlice.allCars.cars || [];
   const cars = useSelector(selectCars);
   console.log(cars);
   const dispatch = useDispatch();
+
   useEffect(() => {
     const getDatas = async () => {
-      dispatch(getCars());
+      dispatch(getCars(category));
     };
     getDatas();
-  }, []);
+  }, [category])
 
   return (
     <Container id="dashboard1">
@@ -34,10 +37,10 @@ function Cars() {
               <button className={css.buttonadd}>+ Add New Car</button>
             </div>
             <div className={css.container2}>
-              <button className={css.buttonall}>All</button>
-              <button className={css.buttoncat1}>2-4 people</button>
-              <button className={css.buttoncat2}>4-6 people</button>
-              <button className={css.buttoncat3}>6-8 people</button>
+              <button onClick={() => (setCategory())} className={css.buttonall}>All</button>
+              <button onClick={() => (setCategory('small'))} className={css.buttoncat1}>2-4 people</button>
+              <button onClick={() => (setCategory('medium'))} className={css.buttoncat2}>4-6 people</button>
+              <button onClick={() => (setCategory('large'))} className={css.buttoncat3}>6-8 people</button>
             </div>
           </Col>
           <Row>
@@ -55,6 +58,7 @@ function Cars() {
                   start_rent_at={car.start_rent_at}
                   finish_rent_at={car.finish_rent_at}
                   updatedAt={car.updatedAt}
+                  category={car.category}
                 />
               </Col>
             ))}

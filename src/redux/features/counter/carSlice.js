@@ -9,8 +9,8 @@ import {
   putEntry,
 } from "../../../services/cardApi";
 
-export const getCars = createAsyncThunk("MobilApi/getCars", async () => {
-  const res = await getCarsApi();
+export const getCars = createAsyncThunk("MobilApi/getCars", async (category) => {
+  const res = await getCarsApi(category);
   return res.data;
 });
 export const getDetailCars = createAsyncThunk(
