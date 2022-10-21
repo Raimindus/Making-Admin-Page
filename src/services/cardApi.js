@@ -59,8 +59,7 @@ export const getMonthlyReport = async (months) => {
     const res = await tokenApi.get(
       `/admin/order/reports?from=${months[0]}&until=${months[1]}`
     );
-    console.log(res.data);
-    return res.data;
+    return res;
   } catch (e) {
     console.error(e);
     return e;

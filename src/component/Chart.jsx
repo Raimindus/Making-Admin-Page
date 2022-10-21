@@ -7,22 +7,22 @@ import {
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container } from "react-bootstrap";
 import { Bar } from "react-chartjs-2";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 
-import { getMonthly } from "../redux/features/counter/carSlice";
+import { getMonthly, selectMonthlyReport } from "../redux/features/counter/carSlice";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement);
 
 function Chart() {
   const dispatch = useDispatch();
   const [months, setMonths] = useState(["2022-10-01", "2022-10-31"]);
-  const [monthsData, setMonthsData] = useState([]);
+  // const [monthsData, setMonthsData] = useState([]);
 
   const handleMonth = async () => {
     try {
       const response = await dispatch(getMonthly(months));
-      setMonthsData(response.payload.map((val) => val.orderCount));
+      // setMonthsData(response.payload.map((val) => val.orderCount));
       return response;
     } catch (e) {
       console.error(e);
@@ -33,6 +33,11 @@ function Chart() {
   useEffect(() => {
     handleMonth();
   }, []);
+
+  const monthlyReport = useSelector(selectMonthlyReport);
+  const monthlyMap = monthlyReport.map((e) => e.orderCount)
+  console.log(monthlyReport);
+
 
   const monthList = [
     { value: ["2022-06-01", "2022-06-30"], label: "June - 2022" },
@@ -78,7 +83,7 @@ function Chart() {
     datasets: [
       {
         label: "Renteds",
-        data: monthsData,
+        data: monthlyMap,
         backgroundColor: "#586B90",
         // borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)", "rgba(255, 206, 86, 1)", "rgba(75, 192, 192, 1)", "rgba(153, 102, 255, 1)", "rgba(255, 159, 64, 1)"],
         borderWidth: 1,

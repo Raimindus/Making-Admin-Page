@@ -12,7 +12,6 @@ function Cars() {
 
   const selectCars = (state) => state.carSlice.allCars.cars || [];
   const cars = useSelector(selectCars);
-  console.log(cars);
   const dispatch = useDispatch();
 
   useEffect(() => {
