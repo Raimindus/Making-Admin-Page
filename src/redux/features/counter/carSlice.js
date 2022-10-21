@@ -9,11 +9,14 @@ import {
   putEntry,
 } from "../../../services/cardApi";
 
-export const getCars = createAsyncThunk("MobilApi/getCars", async (category) => {
-  const res = await getCarsApi(category);
-  console.log(res.data);
-  return res.data;
-});
+export const getCars = createAsyncThunk(
+  "MobilApi/getCars",
+  async (category) => {
+    const res = await getCarsApi(category);
+    console.log(res.data);
+    return res.data;
+  }
+);
 
 export const getDetailCars = createAsyncThunk(
   "MobilApi/getBinarApi",
@@ -42,7 +45,7 @@ export const getMonthly = createAsyncThunk(
   "admin/getMonthly",
   async (months) => {
     const res = await getMonthlyReport(months);
-    console.log(res.data)
+    console.log(res.data);
     return res.data;
   }
 );
@@ -50,7 +53,7 @@ export const getMonthly = createAsyncThunk(
 const initialState = {
   cars: {},
   allCars: {},
-  monthly : [],
+  monthly: [],
   allCarsStatus: "idle",
   carsStatus: "idle",
   deleteStatus: "idle",
@@ -128,7 +131,7 @@ export const carSlice = createSlice({
     [postCar.rejected]: (state) => ({
       ...state,
       deleteStatus: "failed",
-    }),    
+    }),
     [getMonthly.pending]: (state) => ({
       ...state,
       monthlyStatus: "loading",
@@ -144,8 +147,6 @@ export const carSlice = createSlice({
     }),
   },
 });
-
-
 
 // Action creators are generated for each case reducer function
 

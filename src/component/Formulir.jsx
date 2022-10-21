@@ -10,9 +10,17 @@ import {
   Row,
 } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import * as Yup from "yup";
 
 import { postCar } from "../redux/features/counter/carSlice";
 import css from "./css/Formulir.module.css";
+
+const validationSchema = Yup.object().shape({
+  tipeMobil: Yup.string().required("Harus diisi"),
+  harga: Yup.number().required("Harus diisi").max(10, "Maksimal 10 angka"),
+  image: Yup.mixed().nullable(),
+  category: Yup.string().required("Pilih salah satu"),
+});
 
 function Formulir() {
   const dispatch = useDispatch();
@@ -20,6 +28,7 @@ function Formulir() {
     <Container className={css.row1}>
       <Row>
         <Formik
+          validationSchema={validationSchema}
           initialValues={{
             tipeMobil: "",
             harga: "",
