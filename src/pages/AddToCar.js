@@ -3,22 +3,22 @@ import { Col, Image, Row } from "react-bootstrap";
 import vektor from "../assets/img/Vector.png";
 import Formulir from "../component/Formulir";
 import Header from "../component/Header";
-import Sidebar from "../component/Navbar";
-import Navbar from "../component/Sidebar";
+import Navbar from "../component/Navbar";
+import Sidebar from "../component/Sidebar";
 
 function AddToCar() {
   return (
     <div style={{ display: "flex" }}>
-      <Sidebar />
+      <Navbar />
       <div style={{ flex: "1" }}>
         <Row>
           <Col xs={12}>
             <Header />
           </Col>
           <Col xs={2}>
-            <Navbar />
+            <Sidebar title="Cars" submenu="List Car" />
           </Col>
-          <Col xs={10}>
+          <Col xs={10} className="colMainBody">
             <Col>
               <Col className="line1 d-flex gap-2 align-items-center">
                 <p className="padm ">Cars</p>

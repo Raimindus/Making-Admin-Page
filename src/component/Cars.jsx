@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import gambar1 from "../assets/img/Vector.png";
 import { getCars } from "../redux/features/counter/carSlice";
@@ -10,7 +11,6 @@ import css from "./css/Cars.module.css";
 function Cars() {
   const selectCars = (state) => state.carSlice.allCars.cars || [];
   const cars = useSelector(selectCars);
-  console.log(cars);
   const dispatch = useDispatch();
   useEffect(() => {
     const getDatas = async () => {
@@ -22,7 +22,7 @@ function Cars() {
   return (
     <Container id="dashboard1">
       <Row className="d-flex">
-        <Col>
+        <Col className={css.mainContainer}>
           <Col className="line1 d-flex gap-3 ">
             <p className="padm ">Cars</p>
             <Image src={gambar1} className="vektoradm" />
@@ -31,7 +31,9 @@ function Cars() {
           <Col>
             <div className={css.container1}>
               <h1 className={css.hdr1}>List Car</h1>
-              <button className={css.buttonadd}>+ Add New Car</button>
+              <Link to="/ancar">
+                <button className={css.buttonadd}>+ Add New Car</button>
+              </Link>
             </div>
             <div className={css.container2}>
               <button className={css.buttonall}>All</button>

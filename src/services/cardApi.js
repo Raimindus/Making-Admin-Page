@@ -30,7 +30,12 @@ export const postEntry = async (payload) => {
   try {
     await tokenApi.post(
       `https://bootcamp-rent-cars.herokuapp.com/admin/car`,
-      payload
+      payload,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
     );
   } catch (e) {
     console.error(e);

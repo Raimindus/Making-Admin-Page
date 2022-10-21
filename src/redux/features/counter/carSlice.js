@@ -31,8 +31,8 @@ export const putCar = createAsyncThunk("/admin/v2/putCar", async (carId) => {
   return res.data;
 });
 
-export const postCar = createAsyncThunk("admin/v2/postCar", async () => {
-  const res = await postEntry();
+export const postCar = createAsyncThunk("admin/v2/postCar", async (payload) => {
+  const res = await postEntry(payload);
   return res.data;
 });
 
