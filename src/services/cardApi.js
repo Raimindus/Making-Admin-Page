@@ -2,10 +2,10 @@ import axios from "axios";
 
 import tokenApi from "./tokenApi";
 
-export const getCarsApi = async () => {
+export const getCarsApi = async (params) => {
   try {
     const res = await tokenApi.get(
-      "https://bootcamp-rent-cars.herokuapp.com/admin/v2/car"
+      `https://bootcamp-rent-cars.herokuapp.com/admin/v2/car/`,{params:{category : params}}
     );
     return res;
   } catch (e) {
@@ -64,8 +64,7 @@ export const getMonthlyReport = async (months) => {
     const res = await tokenApi.get(
       `/admin/order/reports?from=${months[0]}&until=${months[1]}`
     );
-    console.log(res.data);
-    return res.data;
+    return res;
   } catch (e) {
     console.error(e);
     return e;

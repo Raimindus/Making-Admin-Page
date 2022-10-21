@@ -9,10 +9,12 @@ import {
   putEntry,
 } from "../../../services/cardApi";
 
-export const getCars = createAsyncThunk("MobilApi/getCars", async () => {
-  const res = await getCarsApi();
+export const getCars = createAsyncThunk("MobilApi/getCars", async (category) => {
+  const res = await getCarsApi(category);
+  console.log(res.data);
   return res.data;
 });
+
 export const getDetailCars = createAsyncThunk(
   "MobilApi/getBinarApi",
   async (binarId) => {
@@ -40,13 +42,15 @@ export const getMonthly = createAsyncThunk(
   "admin/getMonthly",
   async (months) => {
     const res = await getMonthlyReport(months);
-    return res;
+    console.log(res.data)
+    return res.data;
   }
 );
 
 const initialState = {
   cars: {},
   allCars: {},
+  monthly : [],
   allCarsStatus: "idle",
   carsStatus: "idle",
   deleteStatus: "idle",
@@ -124,12 +128,28 @@ export const carSlice = createSlice({
     [postCar.rejected]: (state) => ({
       ...state,
       deleteStatus: "failed",
+    }),    
+    [getMonthly.pending]: (state) => ({
+      ...state,
+      monthlyStatus: "loading",
+    }),
+    [getMonthly.fulfilled]: (state, action) => ({
+      ...state,
+      monthly: action.payload,
+      monthlyStatus: "success",
+    }),
+    [getMonthly.rejected]: (state) => ({
+      ...state,
+      monthlyStatus: "failed",
     }),
   },
 });
 
+
+
 // Action creators are generated for each case reducer function
 
+export const selectMonthlyReport = (state) => state.carSlice.monthly || [];
 export const selectDetailCars = (state) => state.cars.cars;
 export const { carDetail } = carSlice.actions;
 
