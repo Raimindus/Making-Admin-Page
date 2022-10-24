@@ -10,14 +10,7 @@ import { deleteCar, getCars } from "../redux/features/counter/carSlice";
 import css from "./css/Card.module.css";
 import DialogBox from "./DialogBox";
 
-const carCard = ({
-  id,
-  image,
-  name,
-  category,
-  price,
-  updatedAt,
-}) => {
+const carCard = ({ id, image, name, category, price, updatedAt }) => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
@@ -50,8 +43,10 @@ const carCard = ({
         <Card.Title>
           <div className={css.cardName}>{name}</div>
           <div className={css.price}>Rp. {price} / hari</div>
-          <div  className={css.cardName}>{category} </div>
-          <div className={css.updatedat}>{dayjs(updatedAt).format('D MMM YYYY, HH:mm')}</div>
+          <div className={css.cardName}>{category} </div>
+          <div className={css.updatedat}>
+            {dayjs(updatedAt).format("D MMM YYYY, HH:mm")}
+          </div>
         </Card.Title>
       </Card.Body>
       <DialogBox
@@ -66,7 +61,7 @@ const carCard = ({
       >
         Delete
       </Button>
-      <Link to="/editcar">
+      <Link to="/editcar/{$id}">
         <Button
           className={`my-auto fw-bold ${css.editbutton}`}
           variant="success"

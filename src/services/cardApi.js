@@ -5,7 +5,8 @@ import tokenApi from "./tokenApi";
 export const getCarsApi = async (params) => {
   try {
     const res = await tokenApi.get(
-      `https://bootcamp-rent-cars.herokuapp.com/admin/v2/car/`,{params:{category : params}}
+      `https://bootcamp-rent-cars.herokuapp.com/admin/v2/car/`,
+      { params: { category: params } }
     );
     return res;
   } catch (e) {
@@ -57,7 +58,7 @@ export const getBinarApi = () =>
   axios.get("https://bootcamp-rent-cars.herokuapp.com/admin/v2/car");
 
 export const getBinarById = (binarId) =>
-  axios.get(`https://bootcamp-rent-cars.herokuapp.com/admin/car/${binarId}`);
+  tokenApi.get(`https://bootcamp-rent-cars.herokuapp.com/admin/car/${binarId}`);
 
 export const getMonthlyReport = async (months) => {
   try {

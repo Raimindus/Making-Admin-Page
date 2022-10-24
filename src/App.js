@@ -21,7 +21,7 @@ function App() {
         <AuthWrapper>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route exact path="/editcar" element={<EditCar />} />
+            <Route exact path="/editcar/:id" element={<EditCar />} />
             <Route exact path="/car" element={<Car />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/ancar" element={<ANCar />} />

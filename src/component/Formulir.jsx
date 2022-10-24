@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Container,
   Form as FormBootstrap,
@@ -9,10 +9,10 @@ import {
   FormSelect,
   Row,
 } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 
-import { postCar } from "../redux/features/counter/carSlice";
+import { getDetailCars, postCar } from "../redux/features/counter/carSlice";
 import css from "./css/Formulir.module.css";
 
 const validationSchema = Yup.object().shape({
@@ -22,22 +22,31 @@ const validationSchema = Yup.object().shape({
   category: Yup.string().required("Pilih salah satu"),
 });
 
-function Formulir() {
+function Formulir({ id }) {
+  const detailCar = useSelector((state) => state.carSlice.cars);
   const dispatch = useDispatch();
+  const initialValues = {
+    tipeMobil: detailCar.name || "",
+    harga: detailCar.price || "",
+    image: detailCar.image || "",
+    status: detailCar.status || false,
+    category: detailCar.category || "",
+    createAt: detailCar.createAt || "",
+    updateAt: detailCar.updateAt || "",
+  };
+  console.log(initialValues);
+  useEffect(() => {
+    dispatch(getDetailCars(id));
+    console.log(id);
+  }, []);
+
   return (
     <Container className={css.row1}>
       <Row>
         <Formik
+          enableReinitialize
           validationSchema={validationSchema}
-          initialValues={{
-            tipeMobil: "",
-            harga: "",
-            image: "",
-            status: false,
-            category: "",
-            createAt: "",
-            updateAt: "",
-          }}
+          initialValues={initialValues}
           onSubmit={async (values) => {
             alert(JSON.stringify(values, null, 2));
             const formData = new FormData();

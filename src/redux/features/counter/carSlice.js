@@ -26,17 +26,17 @@ export const getDetailCars = createAsyncThunk(
   }
 );
 
-export const deleteCar = createAsyncThunk("/admin/v2/car/", async (carId) => {
+export const deleteCar = createAsyncThunk("/admin/car/", async (carId) => {
   const res = await deleteEntry(carId);
   return res.data;
 });
 
-export const putCar = createAsyncThunk("/admin/v2/putCar", async (carId) => {
+export const putCar = createAsyncThunk("/admin/putCar", async (carId) => {
   const res = await putEntry(carId);
   return res.data;
 });
 
-export const postCar = createAsyncThunk("admin/v2/postCar", async (payload) => {
+export const postCar = createAsyncThunk("admin/postCar", async (payload) => {
   const res = await postEntry(payload);
   return res.data;
 });

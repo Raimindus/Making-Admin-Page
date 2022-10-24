@@ -1,4 +1,5 @@
 import { Col, Image, Row } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
 import vektor from "../assets/img/Vector.png";
 import Formulir from "../component/Formulir";
@@ -7,6 +8,7 @@ import Navbar from "../component/Navbar";
 import Sidebar from "../component/Sidebar";
 
 function EditCar() {
+  const { id } = useParams();
   return (
     <div style={{ display: "flex" }}>
       <Navbar />
@@ -31,7 +33,7 @@ function EditCar() {
               Edit Car
             </Col>
             <Col>
-              <Formulir />
+              <Formulir id={id} />
             </Col>
           </Col>
         </Row>
