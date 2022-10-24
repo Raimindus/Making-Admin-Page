@@ -12,7 +12,11 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 
-import { getDetailCars, postCar } from "../redux/features/counter/carSlice";
+import {
+  getDetailCars,
+  postCar,
+  putCar,
+} from "../redux/features/counter/carSlice";
 import css from "./css/Formulir.module.css";
 
 const validationSchema = Yup.object().shape({
@@ -40,6 +44,14 @@ function Formulir({ id }) {
     console.log(id);
   }, []);
 
+  const submitHandler = (data) => {
+    if (!id) {
+      dispatch(postCar(data));
+    } else {
+      dispatch(putCar({ id, payload: data }));
+    }
+  };
+
   return (
     <Container className={css.row1}>
       <Row>
@@ -55,7 +67,7 @@ function Formulir({ id }) {
             formData.append("price", values.harga);
             formData.append("status", values.status);
             formData.append("image", values.image);
-            dispatch(postCar(formData));
+            submitHandler(formData);
           }}
         >
           {(formikProps) => (

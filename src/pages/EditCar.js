@@ -33,7 +33,7 @@ function EditCar() {
               Edit Car
             </Col>
             <Col>
-              <Formulir id={id} />
+              <Formulir id={id} edit />
             </Col>
           </Col>
         </Row>

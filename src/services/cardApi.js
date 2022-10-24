@@ -43,11 +43,16 @@ export const postEntry = async (payload) => {
   }
 };
 
-export const putEntry = async (editEntry, payload) => {
+export const putEntry = async (id, payload) => {
   try {
     await tokenApi.put(
-      `https://bootcamp-rent-cars.herokuapp.com/admin/car/${editEntry}`,
-      payload
+      `https://bootcamp-rent-cars.herokuapp.com/admin/car/${id}`,
+      payload,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
     );
   } catch (e) {
     console.error(e);
@@ -71,3 +76,17 @@ export const getMonthlyReport = async (months) => {
     return e;
   }
 };
+
+export const getPagination = async (params) => {
+  try {
+    const res = await tokenApi.get(
+      `https://bootcamp-rent-cars.herokuapp.com/admin/v2/order`,
+      {
+        params: { page : params } 
+      }
+    );    
+    return res
+  } catch (e) {
+    console.error(e);
+    return e;
+}}

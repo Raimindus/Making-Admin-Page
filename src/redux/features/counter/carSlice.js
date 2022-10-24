@@ -31,8 +31,8 @@ export const deleteCar = createAsyncThunk("/admin/car/", async (carId) => {
   return res.data;
 });
 
-export const putCar = createAsyncThunk("/admin/putCar", async (carId) => {
-  const res = await putEntry(carId);
+export const putCar = createAsyncThunk("/admin/putCar", async ({id, payload}) => {
+  const res = await putEntry(id, payload);
   return res.data;
 });
 
