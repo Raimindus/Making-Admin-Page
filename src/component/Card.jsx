@@ -28,7 +28,7 @@ const carCard = ({ id, image, name, category, price, updatedAt }) => {
     setShowModal(true);
   };
   const handleonEdit = () => {
-    navigate(`/editcar/${id}`)
+    navigate(`/editcar/${id}`);
   };
 
   return (
@@ -42,6 +42,7 @@ const carCard = ({ id, image, name, category, price, updatedAt }) => {
         className="cardImg"
         alt="mobilImg"
         src={image || imagePlaceholder}
+        style={{ maxHeight: "450px" }}
       />
       <Card.Body>
         <Card.Title>
@@ -58,20 +59,22 @@ const carCard = ({ id, image, name, category, price, updatedAt }) => {
         showModal={showModal}
         onCloseModal={HandleCloseModal}
       />
-      <Button
-        className={` my-auto fw-bold ${css.deletebutton}`}
-        variant="outline-danger"
-        onClick={handleOnClickDelete}
-      >
-        Delete
-      </Button>
-      <Button
-        className={`my-auto fw-bold ${css.editbutton}`}
-        variant="success"
-        onClick={handleonEdit}
-      >
-        Edit
-      </Button>
+      <div className={css.buttonContainer}>
+        <Button
+          className={` my-auto fw-bold ${css.deletebutton}`}
+          variant="outline-danger"
+          onClick={handleOnClickDelete}
+        >
+          Delete
+        </Button>
+        <Button
+          className={`my-auto fw-bold ${css.editbutton}`}
+          variant="success"
+          onClick={handleonEdit}
+        >
+          Edit
+        </Button>
+      </div>
     </Card>
   );
 };

@@ -9,7 +9,9 @@ import {
   FormSelect,
   Row,
 } from "react-bootstrap";
+import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 import {
@@ -29,6 +31,7 @@ const validationSchema = Yup.object().shape({
 function Formulir({ id }) {
   const detailCar = useSelector((state) => state.carSlice.cars);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const initialValues = {
     tipeMobil: detailCar.name || "",
     harga: detailCar.price || "",
@@ -43,6 +46,9 @@ function Formulir({ id }) {
     dispatch(getDetailCars(id));
     console.log(id);
   }, []);
+  const cancelHandler = () => {
+    navigate(`/car`);
+  };
 
   const submitHandler = (data) => {
     if (!id) {
@@ -60,7 +66,6 @@ function Formulir({ id }) {
           validationSchema={validationSchema}
           initialValues={initialValues}
           onSubmit={async (values) => {
-            alert(JSON.stringify(values, null, 2));
             const formData = new FormData();
             formData.append("name", values.tipeMobil);
             formData.append("category", values.category);
@@ -68,6 +73,8 @@ function Formulir({ id }) {
             formData.append("status", values.status);
             formData.append("image", values.image);
             submitHandler(formData);
+            navigate(`/car`);
+            toast.success("Data Berhasil Disimpan");
           }}
         >
           {(formikProps) => (
@@ -184,7 +191,9 @@ function Formulir({ id }) {
               </div>
               <div className={css.containerContainer}>
                 <div className={css.buttonContainer}>
-                  <button className={css.button1}>Cancel</button>
+                  <button className={css.button1} onClick={cancelHandler}>
+                    Cancel
+                  </button>
                   <button className={css.button2} type="submit">
                     Save
                   </button>

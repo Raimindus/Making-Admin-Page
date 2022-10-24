@@ -15,7 +15,13 @@
     display: flex;
     gap: 10px;
 }
-
+.cardContainer {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-top: 15px;
+    height: 30rem;
+}
 .hdr1{
     display: grid;
     width: 100%;

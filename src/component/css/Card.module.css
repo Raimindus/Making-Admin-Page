@@ -41,7 +41,12 @@
         font-family: "Arial";
 }
 
-
+.buttonContainer {
+        display: flex;
+        flex-direction: row;
+        padding: 15px;
+        gap: 20px;
+}
 .editbutton {
         box-sizing: border-box;
         display: flex;
