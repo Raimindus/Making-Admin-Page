@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import imagePlaceholder from "../assets/img/carComingSoon.png";
 import { deleteCar, getCars } from "../redux/features/counter/carSlice";
@@ -13,6 +13,8 @@ import DialogBox from "./DialogBox";
 const carCard = ({ id, image, name, category, price, updatedAt }) => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const HandleCloseModal = () => {
     setShowModal(false);
@@ -25,7 +27,9 @@ const carCard = ({ id, image, name, category, price, updatedAt }) => {
   const handleOnClickDelete = () => {
     setShowModal(true);
   };
-  const handleonEdit = () => {};
+  const handleonEdit = () => {
+    navigate(`/editcar/${id}`)
+  };
 
   return (
     <Card
@@ -61,15 +65,13 @@ const carCard = ({ id, image, name, category, price, updatedAt }) => {
       >
         Delete
       </Button>
-      <Link to="/editcar/{$id}">
-        <Button
-          className={`my-auto fw-bold ${css.editbutton}`}
-          variant="success"
-          onClick={handleonEdit}
-        >
-          Edit
-        </Button>
-      </Link>
+      <Button
+        className={`my-auto fw-bold ${css.editbutton}`}
+        variant="success"
+        onClick={handleonEdit}
+      >
+        Edit
+      </Button>
     </Card>
   );
 };

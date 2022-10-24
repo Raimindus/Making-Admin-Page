@@ -17,7 +17,7 @@ import css from "./css/Formulir.module.css";
 
 const validationSchema = Yup.object().shape({
   tipeMobil: Yup.string().required("Harus diisi"),
-  harga: Yup.number().required("Harus diisi").max(10, "Maksimal 10 angka"),
+  harga: Yup.number().required("Harus diisi"),
   image: Yup.mixed().nullable(),
   category: Yup.string().required("Pilih salah satu"),
 });
