@@ -20,7 +20,7 @@ function Cars() {
       dispatch(getCars(category));
     };
     getDatas();
-  }, [category])
+  }, [category]);
 
   return (
     <Container id="dashboard1">
@@ -39,19 +39,32 @@ function Cars() {
               </Link>
             </div>
             <div className={css.container2}>
-              <button onClick={() => (setCategory())} className={css.buttonall}>All</button>
-              <button onClick={() => (setCategory('small'))} className={css.buttoncat1}>2-4 people</button>
-              <button onClick={() => (setCategory('medium'))} className={css.buttoncat2}>4-6 people</button>
-              <button onClick={() => (setCategory('large'))} className={css.buttoncat3}>6-8 people</button>
+              <button onClick={() => setCategory()} className={css.buttonall}>
+                All
+              </button>
+              <button
+                onClick={() => setCategory("small")}
+                className={css.buttoncat1}
+              >
+                2-4 people
+              </button>
+              <button
+                onClick={() => setCategory("medium")}
+                className={css.buttoncat2}
+              >
+                4-6 people
+              </button>
+              <button
+                onClick={() => setCategory("large")}
+                className={css.buttoncat3}
+              >
+                6-8 people
+              </button>
             </div>
           </Col>
           <Row>
             {cars.map((car) => (
-              <Col
-                key={car.id}
-                className="d-flex justify-content-between fw-bold mt-3 gap-3"
-                md={4}
-              >
+              <Col key={car.id} className={css.cardContainer} md={4}>
                 <Card
                   id={car.id}
                   name={car.name}

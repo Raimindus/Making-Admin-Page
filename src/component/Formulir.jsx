@@ -53,7 +53,6 @@ function Formulir({ id }) {
           validationSchema={validationSchema}
           initialValues={initialValues}
           onSubmit={async (values) => {
-            toast.success("Data Berhasil Disimpan");
             const formData = new FormData();
             formData.append("name", values.tipeMobil);
             formData.append("category", values.category);
@@ -62,6 +61,7 @@ function Formulir({ id }) {
             formData.append("image", values.image);
             dispatch(postCar(formData));
             navigate(`/car`);
+            toast.success("Data Berhasil Disimpan");
           }}
         >
           {(formikProps) => (
