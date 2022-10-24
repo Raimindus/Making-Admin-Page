@@ -46,7 +46,6 @@ export const getMonthly = createAsyncThunk(
   "admin/getMonths",
   async (months) => {
     const res = await getMonthlyReport(months);
-    console.log(res.data);
     return res.data;
   }
 );

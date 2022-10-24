@@ -1,6 +1,6 @@
 import React from "react";
 
-function Pagination({ paginate, pageNumber }) {
+function Pagination({ paginate, pageNumber, page }) {
   const pageNumbers = [];
 
   // eslint-disable-next-line no-plusplus
@@ -11,7 +11,7 @@ function Pagination({ paginate, pageNumber }) {
   return (
     <nav>
       <ul className="pagination">
-        <button href="!#" className="page-link">
+        <button onClick={() => paginate(page-1)} href="!#" className="page-link">
           prev
         </button>
         {pageNumbers.map((number) => (
@@ -23,7 +23,7 @@ function Pagination({ paginate, pageNumber }) {
             </button>
           </li>
         ))}
-        <button href="!#" className="page-link">
+        <button onClick={() => paginate(page+1)} href="!#" className="page-link">
           next
         </button>
       </ul>

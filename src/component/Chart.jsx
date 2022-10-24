@@ -36,8 +36,6 @@ function Chart() {
 
   const monthlyReport = useSelector(selectMonthlyReport);
   const monthlyMap = monthlyReport.map((e) => e.orderCount)
-  console.log(monthlyReport);
-
 
   const monthList = [
     { value: ["2022-06-01", "2022-06-30"], label: "June - 2022" },

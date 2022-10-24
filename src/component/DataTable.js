@@ -1,11 +1,20 @@
 /* eslint-disable import/no-unresolved */
 import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
-import { Spinner, Table } from "react-bootstrap";
+import { Button, Col, Form, Spinner, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import Select from "react-select";
 
 import { getOrder, selectOrder } from "../redux/features/counter/carSlice";
 import Pagination from "./Pagination";
+
+const limitList = [{ value: "10", label: "10" }];
+const jtpList = [
+  { value: "1", label: "1" },
+  { value: "2", label: "2" },
+  { value: "3", label: "3" },
+  { value: "4", label: "4" },
+];
 
 function DataTable() {
   const dispatch = useDispatch();
@@ -15,6 +24,7 @@ function DataTable() {
 
   const data = useSelector(selectOrder);
   const posts = data.orders;
+  console.log(posts)
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -38,7 +48,13 @@ function DataTable() {
     }
   }
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => {
+    if (pageNumber <= 1) {
+      setCurrentPage(1);
+    } else {
+      setCurrentPage(pageNumber)
+    }
+  };
 
   return (
     <div>
@@ -74,12 +90,43 @@ function DataTable() {
               <Posts posts={posts} loading={loading} />
             </tbody>
           </Table>
+          <div style={{display:'flex'}}>
+          <Form className="d-flex flex-direction-column">
+            <div>
+              <Form.Label>Limit</Form.Label>
+              <Col md={3} className="">
+                <Select
+                  className="selectFont limitS me-2"
+                  options={limitList}
+                  placeholder="10"
+                />
+              </Col>
+            </div>
+            <div>
+              <Form.Label>Jump to page</Form.Label>
+              <div className="d-flex">
+                <Col md={3}>
+                  <Select
+                    className="limitJtp selectFont me-5"
+                    options={jtpList}
+                    placeholder="1"
+                  />
+                </Col>
+                <Col md={2}>
+                  <Button className="btnjtp">Go</Button>
+                </Col>
+              </div>
+            </div>
+          </Form>
           <Pagination
             pageNumber={data.pageCount}
             paginate={paginate}
+            page={currentPage}
           />
+          </div>
         </>
       )}
+      <br/>
     </div>
   );
 }

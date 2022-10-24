@@ -1,32 +1,16 @@
 import {
-  Button,
   Card,
   Col,
   Container,
-  Form,
   Image,
   Row,
 } from "react-bootstrap";
-import Select from "react-select";
 
 import vektor from "../assets/img/Vector.png";
 import Chart from "./Chart";
 import DataTable from "./DataTable";
 
 function Dashboard() {
-  // const monthList = [
-  //   { value: "June - 2022", label: "June - 2022" },
-  //   { value: "Juli - 2022", label: "Juli - 2022" },
-  //   { value: "Agustus - 2022", label: "Agustus - 2022" },
-  //   { value: "September - 2022", label: "September - 2022" },
-  // ];
-  const limitList = [{ value: "10", label: "10" }];
-  const jtpList = [
-    { value: "1", label: "1" },
-    { value: "2", label: "2" },
-    { value: "3", label: "3" },
-    { value: "4", label: "4" },
-  ];
   return (
     <Container fluid id="dashboard">
       <Row className="d-flex">
@@ -73,33 +57,6 @@ function Dashboard() {
               <p className="dataP2">List Order</p>
             </Col>
             <DataTable />
-            <Form className="d-flex flex-direction-column">
-              <div>
-                <Form.Label>Limit</Form.Label>
-                <Col md={3} className="">
-                  <Select
-                    className="selectFont limitS me-2"
-                    options={limitList}
-                    placeholder="10"
-                  />
-                </Col>
-              </div>
-              <div>
-                <Form.Label>Jump to page</Form.Label>
-                <div className="d-flex">
-                  <Col md={3}>
-                    <Select
-                      className="limitJtp selectFont me-5"
-                      options={jtpList}
-                      placeholder="1"
-                    />
-                  </Col>
-                  <Col md={2}>
-                    <Button className="btnjtp">Go</Button>
-                  </Col>
-                </div>
-              </div>
-            </Form>
           </Card>
         </Col>
       </Row>
