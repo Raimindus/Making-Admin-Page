@@ -2,29 +2,28 @@
 import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
 import { Spinner, Table } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 
-import tokenApi from "../services/tokenApi";
+import { getOrder, selectOrder } from "../redux/features/counter/carSlice";
 import Pagination from "./Pagination";
 
 function DataTable() {
-  const [posts, setPosts] = useState([]);
+  const dispatch = useDispatch();
+
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
-  // eslint-disable-next-line no-unused-vars
-  const [carName, setCarName] = useState(false);
+
+  const data = useSelector(selectOrder);
+  const posts = data.orders;
 
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
-      const res = await tokenApi.get(
-        "https://bootcamp-rent-cars.herokuapp.com/admin/v2/order"
-      );
-      setPosts(res.data.orders);
+      dispatch(getOrder(currentPage));
       setLoading(false);
     };
     fetchPosts();
-  }, []);
+  }, [currentPage]);
 
   // eslint-disable-next-line react/no-unstable-nested-components, no-shadow
   function Posts({ loading }) {
@@ -38,16 +37,6 @@ function DataTable() {
       );
     }
   }
-
-  // if (posts.post.Car.name === "") {
-  //   return null;
-  // }
-
-  // const car = currentPosts.post;
-
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -70,8 +59,7 @@ function DataTable() {
               </tr>
             </thead>
             <tbody>
-              {/* {console.log(currentPosts)} */}
-              {currentPosts.map((post, index) => (
+              {posts.map((post, index) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <tr key={index}>
                   <td>{post?.id}</td>
@@ -83,12 +71,11 @@ function DataTable() {
                   <th>{post?.Car?.category || "-"}</th>
                 </tr>
               ))}
-              <Posts posts={currentPosts} loading={loading} />
+              <Posts posts={posts} loading={loading} />
             </tbody>
           </Table>
           <Pagination
-            postsPerPage={postsPerPage}
-            totalPosts={posts.length}
+            pageNumber={data.pageCount}
             paginate={paginate}
           />
         </>

@@ -1,10 +1,10 @@
 import React from "react";
 
-function Pagination({ postsPerPage, totalPosts, paginate }) {
+function Pagination({ paginate, pageNumber }) {
   const pageNumbers = [];
 
   // eslint-disable-next-line no-plusplus
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+  for (let i = 1; i <= pageNumber; i++) {
     pageNumbers.push(i);
   }
 
@@ -16,7 +16,9 @@ function Pagination({ postsPerPage, totalPosts, paginate }) {
         </button>
         {pageNumbers.map((number) => (
           <li key={number} className="page-item">
-            <button onClick={() => paginate(number)} href="!#" className="page-link">
+            <button onClick={() => 
+              paginate(number)} 
+              href="!#" className="page-link">
               {number}
             </button>
           </li>

@@ -77,12 +77,12 @@ export const getMonthlyReport = async (months) => {
   }
 };
 
-export const getPagination = async (params) => {
+export const getOrderApi = async (pages) => {
   try {
     const res = await tokenApi.get(
       `https://bootcamp-rent-cars.herokuapp.com/admin/v2/order`,
       {
-        params: { page : params } 
+        params: { page : pages } 
       }
     );    
     return res
