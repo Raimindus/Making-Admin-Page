@@ -42,7 +42,7 @@ const carCard = ({ id, image, name, category, price, updatedAt }) => {
         className="cardImg"
         alt="mobilImg"
         src={image || imagePlaceholder}
-        style={{ maxHeight: "450px" }}
+        style={{ maxHeight: "250px" }}
       />
       <Card.Body>
         <Card.Title>

@@ -24,7 +24,7 @@ function Cars() {
 
   return (
     <Container id="dashboard1">
-      <Row className="d-flex">
+      <Row>
         <Col className={css.mainContainer}>
           <Col className="line1 d-flex gap-3 ">
             <p className="padm ">Cars</p>

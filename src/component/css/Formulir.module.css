@@ -10,11 +10,20 @@
 .formContainer {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        padding: 10px;
         width: 100%;
         background: #FFFFFF;
-        border-radius: 2px;
-        position: relative;
+        border-radius: 2px;}
+
+.group1, .group2, .group3, .group4{
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: 200px;
+        padding-bottom: 10px;
+}
+.gabungan {
+        display: grid;
+        grid-auto-flow: row !important;
 }
 
 .label1 {
@@ -143,7 +152,7 @@
 .field5 {
         box-sizing: border-box;
         align-items: center;
-        padding: 9px 12px;
+        padding: 3px 12px;
         gap: 8px;
         width: 339px;
         height: 36px;
@@ -209,7 +218,7 @@
         position: relative;
         width: 100%;
         background: #F4F5F7;
-        top: 250px;                                                                                                                                                                                                                                                                                                                             
+        top: 230px;                                                                                                                                                                                                                                                                                                                             
 }
 
 .buttonContainer {

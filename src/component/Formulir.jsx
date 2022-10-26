@@ -80,7 +80,7 @@ function Formulir({ id }) {
           {(formikProps) => (
             <Form>
               <div className={css.formContainer}>
-                <FormGroup>
+                <FormGroup className={css.group1}>
                   <FormLabel for="tipeMobil">Nama/Tipe Mobil*</FormLabel>
                   <FormControl
                     className={css.field1}
@@ -98,7 +98,7 @@ function Formulir({ id }) {
                       </small>
                     )}
                 </FormGroup>
-                <FormGroup>
+                <FormGroup className={css.group2}>
                   <FormLabel for="harga">Harga*</FormLabel>
                   <FormControl
                     className={css.field2}
@@ -115,24 +115,26 @@ function Formulir({ id }) {
                     </small>
                   )}
                 </FormGroup>
-                <FormGroup>
+                <FormGroup className={css.group3}>
                   <FormLabel for="image">Foto*</FormLabel>
-                  <FormBootstrap.Control
-                    className={css.field3}
-                    id="image"
-                    name="image"
-                    placeholder="Upload Foto Mobil"
-                    onChange={(values) => {
-                      console.log(values.target.files[0]);
-                      formikProps.setFieldValue(
-                        "image",
-                        values.target.files[0]
-                      );
-                    }}
-                    htmlFor="image"
-                    type="file"
-                  />
-                  <div className={css.catatan}>File size max 2MB</div>
+                  <div>
+                    <FormBootstrap.Control
+                      className={css.field3}
+                      id="image"
+                      name="image"
+                      placeholder="Upload Foto Mobil"
+                      onChange={(values) => {
+                        console.log(values.target.files[0]);
+                        formikProps.setFieldValue(
+                          "image",
+                          values.target.files[0]
+                        );
+                      }}
+                      htmlFor="image"
+                      type="file"
+                    />
+                    <div className={css.catatan}>File size max 2MB</div>
+                  </div>
                   {formikProps.errors.image && formikProps.touched.image && (
                     <small style={{ color: "red" }}>
                       {formikProps.errors.image}
@@ -140,7 +142,7 @@ function Formulir({ id }) {
                   )}
                 </FormGroup>
 
-                <FormGroup>
+                <FormGroup className={css.group4}>
                   <FormLabel for="category">Kategori*</FormLabel>
                   <FormSelect
                     className={css.field5}

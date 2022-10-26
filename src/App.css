@@ -116,7 +116,7 @@ body {
   padding-top: 45px;
 }
 .line1 {
-  margin-top: 42px;
+  margin-top: 45px;
 }
 .padm {
   font-family: "Arial";
@@ -163,11 +163,13 @@ body {
 
 #dashboard1 {
   display: flex;
-flex-direction: column;
-align-items: flex-start;
-position: absolute;
-left: 315px;
-top: 60px;
+  flex-direction: column;
+  margin-left: 0px;
+  position: relative;
+  width: 100%;
+  padding-left: 0px;
+  background: #F4F5F7;
+  max-width: 100%;
 }
 
 .boxPage {
@@ -271,3 +273,4 @@ top: 60px;
   position: relative;
   background: #F4F5F7;
 }
+
