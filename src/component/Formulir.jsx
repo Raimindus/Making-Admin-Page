@@ -80,7 +80,7 @@ function Formulir({ id }) {
           {(formikProps) => (
             <Form>
               <div className={css.formContainer}>
-                <FormGroup className={css.group1}>
+                <FormGroup className={css.group}>
                   <FormLabel for="tipeMobil">Nama/Tipe Mobil*</FormLabel>
                   <FormControl
                     className={css.field1}
@@ -98,7 +98,7 @@ function Formulir({ id }) {
                       </small>
                     )}
                 </FormGroup>
-                <FormGroup className={css.group2}>
+                <FormGroup className={css.group}>
                   <FormLabel for="harga">Harga*</FormLabel>
                   <FormControl
                     className={css.field2}
@@ -115,7 +115,7 @@ function Formulir({ id }) {
                     </small>
                   )}
                 </FormGroup>
-                <FormGroup className={css.group3}>
+                <FormGroup className={css.group}>
                   <FormLabel for="image">Foto*</FormLabel>
                   <div>
                     <FormBootstrap.Control
@@ -142,7 +142,7 @@ function Formulir({ id }) {
                   )}
                 </FormGroup>
 
-                <FormGroup className={css.group4}>
+                <FormGroup className={css.group}>
                   <FormLabel for="category">Kategori*</FormLabel>
                   <FormSelect
                     className={css.field5}
@@ -170,7 +170,7 @@ function Formulir({ id }) {
                       </small>
                     )}
                 </FormGroup>
-                <FormGroup>
+                <FormGroup className={css.group}>
                   <FormLabel for="createAt">Created At</FormLabel>
                   <span>{formikProps.values.createdAt || "-"}</span>
                   {formikProps.errors.createAt &&
@@ -180,7 +180,7 @@ function Formulir({ id }) {
                       </small>
                     )}
                 </FormGroup>
-                <FormGroup>
+                <FormGroup className={css.group}>
                   <FormLabel for="updateAt">Update At</FormLabel>
                   <span>{formikProps.values.updateAt || "-"}</span>
                   {formikProps.errors.updateAt &&
