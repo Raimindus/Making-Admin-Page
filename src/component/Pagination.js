@@ -11,20 +11,18 @@ function Pagination({ paginate, pageNumber, page }) {
   return (
     <nav>
       <ul className="pagination">
-        <button onClick={() => paginate(page-1)} href="!#" className="page-link">
-          prev
+        <button onClick={() => paginate(page - 1)} href="!#" className="page-link">
+          Prev
         </button>
         {pageNumbers.map((number) => (
           <li key={number} className="page-item">
-            <button onClick={() => 
-              paginate(number)} 
-              href="!#" className="page-link">
+            <button onClick={() => paginate(number)} href="!#" className="page-link">
               {number}
             </button>
           </li>
         ))}
-        <button onClick={() => paginate(page+1)} href="!#" className="page-link">
-          next
+        <button onClick={() => paginate(page + 1)} href="!#" className="page-link">
+          Next
         </button>
       </ul>
     </nav>
