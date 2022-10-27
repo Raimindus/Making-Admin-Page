@@ -7,11 +7,17 @@ import {
   Nav,
   Navbar,
 } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 import toggleIcon from "../assets/img/fi_menu.png";
 import iconAccount from "../assets/img/Group 15.png";
 
 function Header() {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("auth");
+    navigate(`/`);
+  };
   return (
     <Navbar bg="light">
       <Container fluid className="container1">
@@ -54,10 +60,15 @@ function Header() {
           />
           <DropdownButton
             id="dropdown-item-button"
-            title="Unis Badri"
+            title={JSON.parse(localStorage.getItem("auth"))?.email}
             variant="light"
           >
-            <Dropdown.ItemText>Unis Badri</Dropdown.ItemText>
+            <Dropdown.Item as="button">
+              {JSON.parse(localStorage.getItem("auth"))?.role}
+            </Dropdown.Item>
+            <Dropdown.Item as="button" onClick={handleLogout}>
+              Logout
+            </Dropdown.Item>
           </DropdownButton>
         </Navbar.Collapse>
       </Container>
