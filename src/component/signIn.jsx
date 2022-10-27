@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 import LoginImg from "../assets/img/loginImg.png";
+import tokenApi from "../services/tokenApi";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Email tidak valid"),
@@ -47,6 +48,9 @@ function SignIn() {
                 );
 
                 localStorage.setItem("auth", JSON.stringify(res.data));
+                tokenApi.defaults.headers.common.access_token = JSON.parse(
+                  localStorage.getItem("auth")
+                )?.access_token;
 
                 navigate("/dashboard");
               } catch (e) {
@@ -90,6 +94,7 @@ function SignIn() {
                     placeholder="6+ karakter"
                     value={formikProps.values.password}
                     onChange={formikProps.handleChange}
+                    type="password"
                   />
                   {formikProps.errors.password &&
                     formikProps.touched.password && (

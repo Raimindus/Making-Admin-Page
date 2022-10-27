@@ -24,7 +24,7 @@ function DataTable() {
 
   const data = useSelector(selectOrder);
   const posts = data.orders;
-  console.log(posts)
+  console.log(posts);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -52,7 +52,7 @@ function DataTable() {
     if (pageNumber <= 1) {
       setCurrentPage(1);
     } else {
-      setCurrentPage(pageNumber)
+      setCurrentPage(pageNumber);
     }
   };
 
@@ -90,43 +90,43 @@ function DataTable() {
               <Posts posts={posts} loading={loading} />
             </tbody>
           </Table>
-          <div style={{display:'flex'}}>
-          <Form className="d-flex flex-direction-column">
-            <div>
-              <Form.Label>Limit</Form.Label>
-              <Col md={3} className="">
-                <Select
-                  className="selectFont limitS me-2"
-                  options={limitList}
-                  placeholder="10"
-                />
-              </Col>
-            </div>
-            <div>
-              <Form.Label>Jump to page</Form.Label>
-              <div className="d-flex">
-                <Col md={3}>
+          <div style={{ display: "flex" }}>
+            <Form className="d-flex flex-direction-column">
+              <div>
+                <Form.Label>Limit</Form.Label>
+                <Col md={3} className="">
                   <Select
-                    className="limitJtp selectFont me-5"
-                    options={jtpList}
-                    placeholder="1"
+                    className="selectFont limitS me-2"
+                    options={limitList}
+                    placeholder="10"
                   />
                 </Col>
-                <Col md={2}>
-                  <Button className="btnjtp">Go</Button>
-                </Col>
               </div>
-            </div>
-          </Form>
-          <Pagination
-            pageNumber={data.pageCount}
-            paginate={paginate}
-            page={currentPage}
-          />
+              <div>
+                <Form.Label>Jump to page</Form.Label>
+                <div className="d-flex">
+                  <Col md={3}>
+                    <Select
+                      className="limitJtp selectFont me-5"
+                      options={jtpList}
+                      placeholder="1"
+                    />
+                  </Col>
+                  <Col md={2}>
+                    <Button className="btnjtp">Go</Button>
+                  </Col>
+                </div>
+              </div>
+            </Form>
+            <Pagination
+              pageNumber={data.pageCount}
+              paginate={paginate}
+              page={currentPage}
+            />
           </div>
         </>
       )}
-      <br/>
+      <br />
     </div>
   );
 }
