@@ -10,10 +10,10 @@ import Pagination from "./Pagination";
 
 const limitList = [{ value: "10", label: "10" }];
 const jtpList = [
-  { value: "1", label: "1" },
-  { value: "2", label: "2" },
-  { value: "3", label: "3" },
-  { value: "4", label: "4" },
+  { value: 10, label: '10' },
+  { value: 20, label: '20' },
+  { value: 30, label: '30' },
+  { value: 40, label: '40' },
 ];
 
 function DataTable() {
@@ -21,6 +21,7 @@ function DataTable() {
 
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [jumpToPage, setJumpToPage] = useState();
 
   const data = useSelector(selectOrder);
   const posts = data.orders;
@@ -109,11 +110,12 @@ function DataTable() {
                   <Select
                     className="limitJtp selectFont me-5"
                     options={jtpList}
-                    placeholder="1"
+                    placeholder="10"
+                    onChange={(val) => setJumpToPage(val.value)}
                   />
                 </Col>
                 <Col md={2}>
-                  <Button className="btnjtp">Go</Button>
+                  <Button onClick={() => setCurrentPage(jumpToPage)} className="btnjtp">Go</Button>
                 </Col>
               </div>
             </div>

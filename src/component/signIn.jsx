@@ -87,6 +87,7 @@ function SignIn() {
                   <FormControl
                     id="examplePassword"
                     name="password"
+                    type="password"
                     placeholder="6+ karakter"
                     value={formikProps.values.password}
                     onChange={formikProps.handleChange}
