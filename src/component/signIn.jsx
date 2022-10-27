@@ -95,7 +95,6 @@ function SignIn() {
                     placeholder="6+ karakter"
                     value={formikProps.values.password}
                     onChange={formikProps.handleChange}
-                    type="password"
                   />
                   {formikProps.errors.password &&
                     formikProps.touched.password && (

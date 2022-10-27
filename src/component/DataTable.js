@@ -98,13 +98,9 @@ function DataTable() {
                 <Col md={3} className="">
                   <Select
                     className="limitJtp selectFont me-5"
-                    options={jtpList}
+                    options={limitList}
                     placeholder="10"
-                    onChange={(val) => setJumpToPage(val.value)}
                   />
-                </Col>
-                <Col md={2}>
-                  <Button onClick={() => setCurrentPage(jumpToPage)} className="btnjtp">Go</Button>
                 </Col>
               </div>
               <div>
@@ -115,11 +111,12 @@ function DataTable() {
                       className="limitJtp selectFont me-5"
                       options={jtpList}
                       placeholder="1"
+                      onChange={(val) => setJumpToPage(val.value)}
                     />
                   </Col>
                   <Col md={2}>
-                    <Button className="btnjtp">Go</Button>
-                  </Col>
+                  <Button onClick={() => setCurrentPage(jumpToPage)} className="btnjtp">Go</Button>
+                </Col>
                 </div>
               </div>
             </Form>
