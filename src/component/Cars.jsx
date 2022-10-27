@@ -27,7 +27,7 @@ function Cars() {
       <Row>
         <Col className={css.mainContainer}>
           <Col className="line1 d-flex gap-3 ">
-            <p className="padm ">Cars</p>
+            <p className="padm">Cars</p>
             <Image src={gambar1} className="vektoradm" />
             <p className="padm2">List Car</p>
           </Col>

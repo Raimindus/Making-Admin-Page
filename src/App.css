@@ -74,7 +74,7 @@ body {
 }
 .side {
   width: 70px;
-  height: 902px;
+  height: 100vh;
   background-color: blue;
   margin-top: 0px;
 }
@@ -95,6 +95,7 @@ body {
   font-size: 18px;
   color: #8a8a8a;
   margin-top: 40px;
+  padding: 10px;
 }
 .dash-judul2 {
   font-family: "Arial";
