@@ -11,7 +11,10 @@ function DashboardPage() {
       <Navbar />
       <div style={{ flex: "1" }}>
         <Row>
-          <Col xs={12}>
+          <Col
+            xs={12}
+            style={{ position: "sticky", top: "0px", zIndex: "200" }}
+          >
             <Header />
           </Col>
           <Col xs={2}>

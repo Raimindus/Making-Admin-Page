@@ -2,7 +2,7 @@ import { Col } from "react-bootstrap";
 
 function Sidebar(props) {
   return (
-    <Col className="sideDashboard">
+    <Col className="sideDashboard" style={{ position: "sticky", top: "101px" }}>
       <div className="side2 bg-white">
         <p className="dash-judul" type="text1">
           {props.title}

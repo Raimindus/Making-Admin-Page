@@ -38,7 +38,6 @@ body {
   height: 45px;
   left: 0px;
   top: 0px;
-
 }
 .divlogo1 {
   width: 100px;
@@ -80,13 +79,10 @@ body {
 }
 #dashboard {
   background-color: #e8e3e3;
-  margin-left: 70px;
   margin-top: 0px;
 }
 .sideDashboard {
   background-color: #ffffff;
-  height: 842px;
-  width: 220px;
 }
 .dash-judul {
   font-family: "Arial";
@@ -118,6 +114,7 @@ body {
 }
 .line1 {
   margin-top: 45px;
+  margin-left: 15px;
 }
 .padm {
   font-family: "Arial";

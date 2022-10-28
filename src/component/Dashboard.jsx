@@ -1,10 +1,4 @@
-import {
-  Card,
-  Col,
-  Container,
-  Image,
-  Row,
-} from "react-bootstrap";
+import { Card, Col, Container, Image, Row } from "react-bootstrap";
 
 import vektor from "../assets/img/Vector.png";
 import Chart from "./Chart";
@@ -15,7 +9,7 @@ function Dashboard() {
     <Container fluid id="dashboard">
       <Row className="d-flex">
         <Col>
-          <Col className="line1 d-flex gap-2">
+          <Col className="line1 d-flex gap-2 container">
             <p className="padm ">Dashboard</p>
             <Image src={vektor} className="vektoradm" />
             <p className="padm2">Dashboard</p>
@@ -30,7 +24,7 @@ function Dashboard() {
               border: "none",
             }}
           >
-            <Col className="d-flex gap-2 align-items-center">
+            <Col className="d-flex gap-2 align-items-center container ">
               <div
                 className=""
                 style={{
@@ -43,18 +37,18 @@ function Dashboard() {
               <p className="dataP">Rented Car Data Visualization</p>
             </Col>
             <Chart />
-            <h6 className="mt-4 mb-3">Dashboard</h6>
+            <h6 className="mt-4 mb-3 container">Dashboard</h6>
 
-            <Col className="d-flex gap-2">
+            <Col className="d-flex gap-2 container">
               <div
-                className="mt-1"
+                className="mt-1 "
                 style={{
                   width: "4px",
                   height: "24px",
                   backgroundColor: "blue",
                 }}
               />
-              <p className="dataP2">List Order</p>
+              <p className="dataP2 ">List Order</p>
             </Col>
             <DataTable />
           </Card>

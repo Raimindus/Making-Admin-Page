@@ -7,7 +7,7 @@ import iconCar from "../assets/img/fi_truck.png";
 function Navbar() {
   return (
     <div style={{ width: "70px" }}>
-      <div className="d-flex column">
+      <div className="d-flex column" style={{ position: "sticky", top: "0" }}>
         <div className="side">
           <img
             src={iconBox}

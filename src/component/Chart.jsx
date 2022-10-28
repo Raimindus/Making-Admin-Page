@@ -10,7 +10,10 @@ import { Bar } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 
-import { getMonthly, selectMonthlyReport } from "../redux/features/counter/carSlice";
+import {
+  getMonthly,
+  selectMonthlyReport,
+} from "../redux/features/counter/carSlice";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement);
 
@@ -35,7 +38,7 @@ function Chart() {
   }, []);
 
   const monthlyReport = useSelector(selectMonthlyReport);
-  const monthlyMap = monthlyReport.map((e) => e.orderCount)
+  const monthlyMap = monthlyReport.map((e) => e.orderCount);
 
   const monthList = [
     { value: ["2022-06-01", "2022-06-30"], label: "June - 2022" },
@@ -104,7 +107,7 @@ function Chart() {
     },
   };
   return (
-    <div>
+    <div className="container">
       <Container className="mt-2 mb-5">
         <div>Month</div>
         <Col md={3} className="d-flex">

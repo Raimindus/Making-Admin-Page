@@ -10,10 +10,10 @@ import Pagination from "./Pagination";
 
 const limitList = [{ value: "10", label: "10" }];
 const jtpList = [
-  { value: 10, label: '10' },
-  { value: 20, label: '20' },
-  { value: 30, label: '30' },
-  { value: 40, label: '40' },
+  { value: 10, label: "10" },
+  { value: 20, label: "20" },
+  { value: 30, label: "30" },
+  { value: 40, label: "40" },
 ];
 
 function DataTable() {
@@ -58,13 +58,13 @@ function DataTable() {
   };
 
   return (
-    <div>
+    <div className="container">
       {!posts ? (
         "No data Table"
       ) : (
         <>
           <Table bordered hover>
-            <thead className="bg-secondary">
+            <thead className="bg-secondary ">
               <tr>
                 <th>No</th>
                 <th>Email User</th>
@@ -91,8 +91,8 @@ function DataTable() {
               <Posts posts={posts} loading={loading} />
             </tbody>
           </Table>
-          <div style={{ display: "flex" }}>
-            <Form className="d-flex flex-direction-column">
+          <div style={{ display: "flex", width: "100%" }}>
+            <Form className="d-flex flex-direction-column container">
               <div>
                 <Form.Label>Limit</Form.Label>
                 <Col md={3} className="">
@@ -115,8 +115,13 @@ function DataTable() {
                     />
                   </Col>
                   <Col md={2}>
-                  <Button onClick={() => setCurrentPage(jumpToPage)} className="btnjtp">Go</Button>
-                </Col>
+                    <Button
+                      onClick={() => setCurrentPage(jumpToPage)}
+                      className="btnjtp"
+                    >
+                      Go
+                    </Button>
+                  </Col>
                 </div>
               </div>
             </Form>
