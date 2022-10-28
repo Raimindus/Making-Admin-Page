@@ -20,7 +20,7 @@ function AddToCar() {
           </Col>
           <Col xs={10} className="colMainBody">
             <Col>
-              <Col className="line1 d-flex gap-2 ">
+              <Col className="line2 d-flex gap-2 ">
                 <p className="padm ">Cars</p>
                 <Image src={vektor} className="vektoradm" />
                 <p className="padm2">List Car</p>

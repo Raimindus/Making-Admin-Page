@@ -218,7 +218,8 @@
         position: relative;
         width: 100%;
         background: #F4F5F7;
-        top: 230px;                                                                                                                                                                                                                                                                                                                             
+        bottom: 90px;
+        margin-top: 425px;                                                                                                                                                                                                                                                                                                                             
 }
 
 .buttonContainer {
