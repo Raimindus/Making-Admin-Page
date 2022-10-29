@@ -72,10 +72,10 @@ body {
   /* margin-bottom: 23px; */
 }
 .side {
+  position: sticky;
   width: 70px;
   height: 100vh;
   background-color: blue;
-  margin-top: 0px;
 }
 #dashboard {
   background-color: #e8e3e3;

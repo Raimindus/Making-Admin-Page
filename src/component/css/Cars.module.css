@@ -1,7 +1,6 @@
 .mainContainer {
     display: flex;
     flex-direction: column;
-    height: 901px;
     background: #F4F5F7;
     position: relative;
 }
