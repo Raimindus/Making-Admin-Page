@@ -97,7 +97,7 @@ function Chart() {
     scales: {
       y: {
         beginAtZero: true,
-        max: 10,
+        max: 30,
       },
     },
     legend: {
